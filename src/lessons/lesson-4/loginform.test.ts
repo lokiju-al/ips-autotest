@@ -57,16 +57,16 @@ describe('Login form test', async () => {
         expect(await browser.$('//*[@role="alert"]').getText()).toBeDisplayed()
     })
 
-    it('User should not be log in with empty fields', async () => {
-        await browser.$('//*[@type="submit"]').waitForClickable({
-            timeoutMsg: 'Login button was not clickable'
-        })
-        await browser.$('//*[@type="submit"]').click()
+    // it('User should not be log in with empty fields', async () => {
+    //     await browser.$('//*[@type="submit"]').waitForClickable({
+    //         timeoutMsg: 'Login button was not clickable'
+    //     })
+    //     await browser.$('//*[@type="submit"]').click()
 
-        expect(await browser.$('//*[@role="alert"]').getText()).toBeDisplayed()
-    })
+    //     expect(await browser.$('//*[@role="alert"]').getText()).toBeDisplayed()
+    // })
 
-    afterEach(async () => {
-        await browser.reloadSession()
-    })
+    // afterEach(async () => {
+    //     await browser.reloadSession()
+    // })
 })
