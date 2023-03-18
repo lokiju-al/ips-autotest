@@ -1,0 +1,81 @@
+Alexander Mikhailov, [17.03.2023 15:33]
+async function showHiddenFileInput(browser: WebdriverIO.Browser): Promise<void> {
+    await browser.execute(() => {
+        const htmlElement = document.querySelector('[type="file"]') as HTMLElement
+        htmlElement.style.cssText = 'display:block !important; opacity: 1; position: inherit;'
+    })
+}
+
+Alexander Mikhailov, [17.03.2023 15:33]
+    public async uploadFile(filePath: string): Promise<void> {
+        await this.getInputFile().waitForExist({
+            timeoutMsg: 'File input field was not exist',
+        })
+        await showHiddenFileInput(this.browser)
+        const file: string = await this.browser.uploadFile(filePath)
+        await this.getInputFile().setValue(file)
+    }
+
+    private getInputFile(): ChainablePromiseElement<Promise<WebdriverIO.Element>> {
+        return this.browser.$('[type="file"]')
+    }
+    Alexander Mikhailov, [17.03.2023 15:33]
+async function showHiddenFileInput(browser: WebdriverIO.Browser): Promise<void> {
+    await browser.execute(() => {
+        const htmlElement = document.querySelector('[type="file"]') as HTMLElement
+        htmlElement.style.cssText = 'display:block !important; opacity: 1; position: inherit;'
+    })
+}
+
+
+как его использовать в PageObject
+Alexander Mikhailov, [17.03.2023 15:33]
+    public async uploadFile(filePath: string): Promise<void> {
+        await this.getInputFile().waitForExist({
+            timeoutMsg: 'File input field was not exist',
+        })
+        await showHiddenFileInput(this.browser)
+        const file: string = await this.browser.uploadFile(filePath)
+        await this.getInputFile().setValue(file)
+    }
+
+    private getInputFile(): ChainablePromiseElement<Promise<WebdriverIO.Element>> {
+        return this.browser.$('[type="file"]')
+    }
+
+
+Тест
+Alexander Mikhailov, [17.03.2023 15:34]
+import {LoginPage} from '../page/LoginPage'
+import {LOGIN, PASSWORD} from '../common/config/credentials'
+import {ProfilePage} from '../page/Profile.page'
+
+describe('Upload image', () => {
+    let loginPage: LoginPage
+    let profilePage: ProfilePage
+    const filePath = 'src/files/itsmee.jpg'
+
+    before(async () => {
+        loginPage = new LoginPage(browser)
+        profilePage = new ProfilePage(browser)
+        await loginPage.open()
+        await loginPage.login(LOGIN, PASSWORD)
+        await browser.url('https://github.com/settings/profile')
+    })
+
+    it('photo should be uploaded in profile', async () => {
+        await profilePage.uploadFile(filePath)
+        await browser.pause(100000)
+    })
+})
+
+
+Для задачек тоже самое, только там никакого скрипта не нужно
+
+    public async uploadFile(filePath: string): Promise<void> {
+        await this.getInputFile().waitForExist({
+            timeoutMsg: 'File input field was not exist',
+        })
+        const file: string = await this.browser.uploadFile(filePath)
+        await this.getInputFile().setValue(file)
+    }
