@@ -4,8 +4,8 @@
 Подготовительная часть:
 1) Открыть https://github.com/login
 Шаги воспроизведения:
-1) Ввести в поле Username or email address → for_fonk@mail.ru
-2) Ввести в поле Password → hytplonb3620
+1) Ввести в поле Username or email address → EMAIL
+2) Ввести в поле Password → '1234'
 3) Нажать кнопку Sigh in
 
 Ожидаемый результат: На странице логинации над формой ввода появляется сообщение 

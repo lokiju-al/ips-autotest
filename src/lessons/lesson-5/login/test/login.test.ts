@@ -12,7 +12,7 @@ describe('Login form test', async () => {
     })
 
     beforeEach(async () => {
-        await loginPage.openBrowser()
+        await loginPage.openUrl()
     })
 
     it('User should be log in with LOGIN', async () => {

@@ -3,8 +3,8 @@
 
 Подготовительная часть:
 1) Открыть https://github.com/login
-2) Ввести в поле Username or email address → lokiju-test
-3) Ввести в поле Password → Hytplonb3620
+2) Ввести в поле Username or email address → LOGIN
+3) Ввести в поле Password → PASSWORD
 4) Нажать кнопку Sigh in
 5) Открыть https://github.com/settings/emails
 6) Убрать галочку Keep my email addresse private

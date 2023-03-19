@@ -33,7 +33,7 @@ class LoginPage {
         return this.getAlert().getText()
     }
 
-    public async openBrowser(): Promise<void> {
+    public async openUrl(): Promise<void> {
         await this.browser.url(this.url)
     }
 

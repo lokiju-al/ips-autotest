@@ -29,17 +29,10 @@ class LoginPage {
         await this.getFieldPassword().setValue(password)
     }
 
-    public getAlertText(): Promise<string> {
-        return this.getAlert().getText()
-    }
-
-    public async openBrowser(): Promise<void> {
+    public async openUrl(): Promise<void> {
         await this.browser.url(this.url)
     }
 
-    private getAlert(): ChainablePromiseElement<WebdriverIO.Element> {
-        return this.browser.$('//*[@id="js-flash-container"]')
-    }
     private getButtonLogin(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@type="submit"]')
     }
