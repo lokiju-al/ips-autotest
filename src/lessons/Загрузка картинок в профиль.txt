@@ -19,7 +19,8 @@ Alexander Mikhailov, [17.03.2023 15:33]
     private getInputFile(): ChainablePromiseElement<Promise<WebdriverIO.Element>> {
         return this.browser.$('[type="file"]')
     }
-    Alexander Mikhailov, [17.03.2023 15:33]
+
+Alexander Mikhailov, [17.03.2023 15:33]
 async function showHiddenFileInput(browser: WebdriverIO.Browser): Promise<void> {
     await browser.execute(() => {
         const htmlElement = document.querySelector('[type="file"]') as HTMLElement

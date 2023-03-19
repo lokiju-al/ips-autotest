@@ -43,7 +43,7 @@ describe('Login form test', async () => {
         expect(await browser.$('//*[@class="css-truncate-target"]').getText()).toEqual(LOGIN)
     })
 
-    it('User should be log in with wrong PASSWORD', async () => {
+    it('User should not be log in with wrong PASSWORD', async () => {
         await browser.$('//*[@id="login_field"]').waitForDisplayed({
             timeoutMsg: 'Login field was not displayed'
         })
@@ -54,19 +54,19 @@ describe('Login form test', async () => {
         })
         await browser.$('//*[@type="submit"]').click()
 
-        expect(await browser.$('//*[@role="alert"]').getText()).toBeDisplayed()
+        expect(await browser.$('//*[@id="js-flash-container"]').getText()).toEqual('Incorrect username or password.')
     })
 
-    // it('User should not be log in with empty fields', async () => {
-    //     await browser.$('//*[@type="submit"]').waitForClickable({
-    //         timeoutMsg: 'Login button was not clickable'
-    //     })
-    //     await browser.$('//*[@type="submit"]').click()
+    it('User should not be log in with empty fields', async () => {
+        await browser.$('//*[@type="submit"]').waitForClickable({
+            timeoutMsg: 'Login button was not clickable'
+        })
+        await browser.$('//*[@type="submit"]').click()
 
-    //     expect(await browser.$('//*[@role="alert"]').getText()).toBeDisplayed()
-    // })
+        expect(await browser.$('//*[@id="js-flash-container"]').getText()).toEqual('Incorrect username or password.')
+    })
 
-    // afterEach(async () => {
-    //     await browser.reloadSession()
-    // })
+    afterEach(async () => {
+        await browser.reloadSession()
+    })
 })
