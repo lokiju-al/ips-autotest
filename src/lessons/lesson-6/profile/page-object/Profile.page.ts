@@ -8,25 +8,81 @@ class ProfilePage {
         this.browser = browser
     }
 
-    public async clickPronounsCombobox(): Promise<void> {
-        await this.getPronounsCombobox().waitForClickable({
+
+
+
+
+    // async function showHiddenFileInput(browser: WebdriverIO.Browser): Promise<void> {
+    //     await browser.execute(() => {
+    //         const htmlElement = document.querySelector('[type="file"]') as HTMLElement
+    //         htmlElement.style.cssText = 'display:block !important; opacity: 1; position: inherit;'
+    //     })
+    // }
+
+
+    // public async uploadFile(filePath: string): Promise < void> {
+    //     await this.getInputFile().waitForExist({
+    //         timeoutMsg: 'File input field was not exist',
+    //     })
+    //         await showHiddenFileInput(this.browser)
+    //         const file: string = await this.browser.uploadFile(filePath)
+    //         await this.getInputFile().setValue(file)
+    // }
+
+    //     private getInputFile(): ChainablePromiseElement < Promise < WebdriverIO.Element >> {
+    //     return this.browser.$('[type="file"]')
+    // }
+
+
+    // async function showHiddenFileInput(browser: WebdriverIO.Browser): Promise<void> {
+    //     await browser.execute(() => {
+    //         const htmlElement = document.querySelector('[type="file"]') as HTMLElement
+    //         htmlElement.style.cssText = 'display:block !important; opacity: 1; position: inherit;'
+    //     })
+    // }
+
+
+    // public async uploadFile(filePath: string): Promise < void> {
+    //     await this.getInputFile().waitForExist({
+    //         timeoutMsg: 'File input field was not exist',
+    //     })
+    //         await showHiddenFileInput(this.browser)
+    //         const file: string = await this.browser.uploadFile(filePath)
+    //         await this.getInputFile().setValue(file)
+    // }
+
+    // public async uploadFile(filePath: string): Promise < void> {
+    //     await this.getInputFile().waitForExist({
+    //         timeoutMsg: 'File input field was not exist',
+    //     })
+    //         const file: string = await this.browser.uploadFile(filePath)
+    //         await this.getInputFile().setValue(file)
+    // }
+
+    // private getInputFile(): ChainablePromiseElement < Promise < WebdriverIO.Element >> {
+    //     return this.browser.$('[type="file"]')
+    // }
+
+
+
+
+
+
+
+
+
+    public async selectPronounsCombobox(pronouns: string): Promise<void> {
+        await this.getPronounsCombobox().waitForDisplayed({
             timeoutMsg: 'Pronouns combobox was not clickable'
         })
-        await this.getPronounsCombobox().click()
-    }
-
-    public async clickPronounsComboboxValue(): Promise<void> {
-        await this.getPronounsComboboxValue().waitForClickable({
-            timeoutMsg: 'Pronouns combobox value was not clickable'
-        })
-        await this.getPronounsComboboxValue().click()
+        await this.getPronounsCombobox().selectByVisibleText(pronouns)
     }
 
     public async fillEmailComboBox(email: string): Promise<void> {
         await this.getEmailComboBox().waitForClickable({
             timeoutMsg: 'Email ComboBox was not clickable'
         })
-        await this.getEmailComboBox().setValue(email)
+        await this.getEmailComboBox().selectByVisibleText(email)
     }
 
     public async fillFieldBio(bio: string): Promise<void> {
@@ -72,10 +128,6 @@ class ProfilePage {
 
     private getPronounsCombobox(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@id="user_profile_pronouns_select"]')
-    }
-
-    private getPronounsComboboxValue(): ChainablePromiseElement<WebdriverIO.Element> {
-        return this.browser.$('//*[@id="user_profile_pronouns_select"]/option[@value = "he/him"]')
     }
 }
 

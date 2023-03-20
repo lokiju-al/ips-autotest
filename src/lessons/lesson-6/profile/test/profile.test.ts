@@ -9,6 +9,7 @@ describe('Public profile test', async () => {
     let loginPage: LoginPage
     let overviewPage: OverviewPage
     let profilePage: ProfilePage
+    const filePath = 'src/files/itsmee.jpg'
 
     before(async () => {
         emailsPage = new EmailsPage(browser)
@@ -41,25 +42,29 @@ describe('Public profile test', async () => {
     //     expect(await overviewPage.getBioText()).toEqual('ё2')
     // })
 
-    // it('User should be able to set Email visible', async () => {
-    //     await emailsPage.openUrl()
-    //     await emailsPage.uncheckPrivacy()
-    //     await profilePage.openUrl()
-    //     await profilePage.fillEmailComboBox(EMAIL)
-    //     await profilePage.saveChanges()
-    //     await overviewPage.openUrl()
-
-    //     expect(await overviewPage.getEmailText()).toEqual(EMAIL)
-    // })
-
-    it('User should be able to change Pronouns', async () => {
-        await profilePage.clickPronounsCombobox()
-        await profilePage.clickPronounsComboboxValue()
+    it('User should be able to set Email visible', async () => {
+        // await emailsPage.openUrl()
+        // await emailsPage.uncheckPrivacy()
+        await profilePage.openUrl()
+        await profilePage.fillEmailComboBox(EMAIL)
         await profilePage.saveChanges()
         await overviewPage.openUrl()
 
-        expect(await overviewPage.getPronounsText()).toEqual('he/him')
+        expect(await overviewPage.getEmailText()).toEqual(EMAIL)
     })
+
+    // it('User should be able to change Pronouns', async () => {
+    //     await profilePage.selectPronounsCombobox('he/him')
+    //     await profilePage.saveChanges()
+    //     await overviewPage.openUrl()
+
+    //     expect(await overviewPage.getPronounsText()).toEqual('he/him')
+    // })
+
+    // it('Photo should be uploaded in profile', async () => {
+    //     await profilePage.uploadFile(filePath)
+    //     await browser.pause(100000)
+    // })
 
     after(async () => {
         await browser.reloadSession()
