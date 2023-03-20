@@ -20,7 +20,7 @@ describe('Login form test', async () => {
         await loginPage.fillFieldPassword(PASSWORD)
         await loginPage.clickButtonLogin()
         await mainPage.openUserMenu()
-
+        
         expect(await mainPage.getUserLoginText()).toEqual(LOGIN)
     })
 
