@@ -35,7 +35,7 @@ describe('Login form test', async () => {
 
     it('User should not be log in with wrong PASSWORD', async () => {
         await loginPage.fillFieldLogin(EMAIL)
-        await loginPage.fillFieldPassword('1234')
+        await loginPage.fillFieldPassword('12345')
         await loginPage.clickButtonLogin()
 
         expect(await loginPage.getAlertText()).toEqual('Incorrect username or password.')
