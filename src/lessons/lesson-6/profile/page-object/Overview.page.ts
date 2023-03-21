@@ -1,8 +1,8 @@
 import { ChainablePromiseElement } from 'webdriverio'
+import { userData } from '../data/user.data'
 
 class OverviewPage {
     protected browser: WebdriverIO.Browser
-    protected url = 'https://github.com/lokiju-test'
 
     constructor(browser: WebdriverIO.Browser) {
         this.browser = browser
@@ -13,7 +13,7 @@ class OverviewPage {
     }
 
     public getEmailText(): Promise<string> {
-        return this.getBio().getText()
+        return this.getEmail().getText()
     }
 
     public getNameText(): Promise<string> {
@@ -25,7 +25,7 @@ class OverviewPage {
     }
 
     public async openUrl(): Promise<void> {
-        await this.browser.url(this.url)
+        await this.browser.url(userData.userUrl)
     }
 
     private getBio(): ChainablePromiseElement<WebdriverIO.Element> {

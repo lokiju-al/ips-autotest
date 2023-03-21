@@ -9,7 +9,9 @@ class EmailsPage {
     }
 
     public async uncheckPrivacy(): Promise<void> {
-        await this.getPrivateToggle().click()
+        // let toggleSelected: boolean = true
+        // toggleSelected = await this.getPrivateToggle().isSelected()
+        if (await this.getPrivateToggle().isSelected()) await this.getPrivateToggle().click()
     }
 
     public async openUrl(): Promise<void> {

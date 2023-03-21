@@ -1,4 +1,5 @@
 import { ChainablePromiseElement } from 'webdriverio'
+import { UserModel } from '../model/user.model'
 
 class ProfilePage {
     protected browser: WebdriverIO.Browser
@@ -71,32 +72,25 @@ class ProfilePage {
 
 
 
-    public async selectPronounsCombobox(pronouns: string): Promise<void> {
-        await this.getPronounsCombobox().waitForDisplayed({
-            timeoutMsg: 'Pronouns combobox was not clickable'
-        })
-        await this.getPronounsCombobox().selectByVisibleText(pronouns)
-    }
-
-    public async fillEmailComboBox(email: string): Promise<void> {
+    public async fillEmailComboBox(user: UserModel): Promise<void> {
         await this.getEmailComboBox().waitForClickable({
             timeoutMsg: 'Email ComboBox was not clickable'
         })
-        await this.getEmailComboBox().selectByVisibleText(email)
+        await this.getEmailComboBox().selectByVisibleText(user.email)
     }
 
-    public async fillFieldBio(bio: string): Promise<void> {
+    public async fillFieldBio(user: UserModel): Promise<void> {
         await this.getFieldBio().waitForDisplayed({
             timeoutMsg: 'Field Bio was not displayed'
         })
-        await this.getFieldBio().setValue(bio)
+        await this.getFieldBio().setValue(user.bio)
     }
 
-    public async fillFieldName(name: string): Promise<void> {
+    public async fillFieldName(user: UserModel): Promise<void> {
         await this.getFieldName().waitForDisplayed({
             timeoutMsg: 'Field Name was not displayed'
         })
-        await this.getFieldName().setValue(name)
+        await this.getFieldName().setValue(user.name)
     }
 
     public async openUrl(): Promise<void> {
@@ -108,6 +102,13 @@ class ProfilePage {
             timeoutMsg: 'Update button was not clickable'
         })
         await this.getButtonUpdate().click()
+    }
+
+    public async selectPronounsCombobox(user: UserModel): Promise<void> {
+        await this.getPronounsCombobox().waitForDisplayed({
+            timeoutMsg: 'Pronouns combobox was not clickable'
+        })
+        await this.getPronounsCombobox().selectByVisibleText(user.pronouns)
     }
 
     private getButtonUpdate(): ChainablePromiseElement<WebdriverIO.Element> {
