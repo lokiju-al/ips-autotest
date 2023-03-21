@@ -1,10 +1,12 @@
 import { LoginPage } from '../page-object/Login.page'
 import { MainPage } from '../page-object/Main.page'
-import { LOGIN, EMAIL, PASSWORD } from '../../../../../credential'
+import { userData } from '../data/user.data'
+import { UserModel, createUserModel } from '../model/user.model'
 
 describe('Login form test', async () => {
     let loginPage: LoginPage
     let mainPage: MainPage
+    const user: UserModel = createUserModel(userData)
 
     before(async () => {
         loginPage = new LoginPage(browser)
@@ -16,26 +18,26 @@ describe('Login form test', async () => {
     })
 
     it('User should be log in with LOGIN', async () => {
-        await loginPage.fillFieldLogin(LOGIN)
-        await loginPage.fillFieldPassword(PASSWORD)
+        await loginPage.fillFieldLogin(user)
+        await loginPage.fillFieldPassword(user)
         await loginPage.clickButtonLogin()
         await mainPage.openUserMenu()
         
-        expect(await mainPage.getUserLoginText()).toEqual(LOGIN)
+        expect(await mainPage.getUserLoginText()).toEqual(user.login)
     })
 
     it('User should be log in with EMAIL', async () => {
-        await loginPage.fillFieldLogin(EMAIL)
-        await loginPage.fillFieldPassword(PASSWORD)
+        await loginPage.fillFieldEmail(user)
+        await loginPage.fillFieldPassword(user)
         await loginPage.clickButtonLogin()
         await mainPage.openUserMenu()
 
-        expect(await mainPage.getUserLoginText()).toEqual(LOGIN)
+        expect(await mainPage.getUserLoginText()).toEqual(user.login)
     })
 
     it('User should not be log in with wrong PASSWORD', async () => {
-        await loginPage.fillFieldLogin(EMAIL)
-        await loginPage.fillFieldPassword('12345')
+        await loginPage.fillFieldEmail(user)
+        await loginPage.fillFieldPasswordWrong(user)
         await loginPage.clickButtonLogin()
 
         expect(await loginPage.getAlertText()).toEqual('Incorrect username or password.')
