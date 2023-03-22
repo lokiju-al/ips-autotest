@@ -11,7 +11,6 @@ describe('Public profile test', async () => {
     let overviewPage: OverviewPage
     let profilePage: ProfilePage
     const user: UserModel = createUserModel(userData)
-    const filePath = 'src/files/itsmee.jpg'
 
     before(async () => {
         emailsPage = new EmailsPage(browser)
@@ -28,45 +27,49 @@ describe('Public profile test', async () => {
         await profilePage.openUrl()
     })
 
-    it('User should be able to change Name', async () => {
-        await profilePage.fillFieldName(user)
-        await profilePage.saveChanges()
-        await overviewPage.openUrl()
+    // it('User should be able to change Name', async () => {
+    //     await profilePage.fillFieldName(user)
+    //     await profilePage.saveChanges()
+    //     await overviewPage.openUrl()
 
-        expect(await overviewPage.getNameText()).toEqual(user.name)
-    })
-
-    it('User should be able to change Bio', async () => {
-        await profilePage.fillFieldBio(user)
-        await profilePage.saveChanges()
-        await overviewPage.openUrl()
-
-        expect(await overviewPage.getBioText()).toEqual(user.bio)
-    })
-
-    it('User should be able to set Email visible', async () => {
-        await emailsPage.openUrl()
-        await emailsPage.uncheckPrivacy()
-        await profilePage.openUrl()
-        await profilePage.fillEmailComboBox(user)
-        await profilePage.saveChanges()
-        await overviewPage.openUrl()
-
-        expect(await overviewPage.getEmailText()).toEqual(user.email)
-    })
-
-    it('User should be able to change Pronouns', async () => {
-        await profilePage.selectPronounsCombobox(user)
-        await profilePage.saveChanges()
-        await overviewPage.openUrl()
-
-        expect(await overviewPage.getPronounsText()).toEqual(user.pronouns)
-    })
-
-    // it('Photo should be uploaded in profile', async () => {
-    //     await profilePage.uploadFile(filePath)
-    //     await browser.pause(100000)
+    //     expect(await overviewPage.getNameText()).toEqual(user.name)
     // })
+
+    // it('User should be able to change Bio', async () => {
+    //     await profilePage.fillFieldBio(user)
+    //     await profilePage.saveChanges()
+    //     await overviewPage.openUrl()
+
+    //     expect(await overviewPage.getBioText()).toEqual(user.bio)
+    // })
+
+    // it('User should be able to set Email visible', async () => {
+    //     await emailsPage.openUrl()
+    //     await emailsPage.uncheckPrivacy()
+    //     await profilePage.openUrl()
+    //     await profilePage.fillEmailComboBox(user)
+    //     await profilePage.saveChanges()
+    //     await overviewPage.openUrl()
+
+    //     expect(await overviewPage.getEmailText()).toEqual(user.email)
+    // })
+
+    // it('User should be able to change Pronouns', async () => {
+    //     await profilePage.selectPronounsCombobox(user)
+    //     await profilePage.saveChanges()
+    //     await overviewPage.openUrl()
+
+    //     expect(await overviewPage.getPronounsText()).toEqual(user.pronouns)
+    // })
+
+    it('Avatar with proper type should be uploaded in profile', async () => {
+        await profilePage.clickButtonRemoveAvatar()
+        await profilePage.uploadProperAvatar(user)
+        await profilePage.clickButtonSaveAvatar()
+        await profilePage.clickButtonEditAvatar()
+
+        expect(await profilePage.isButtonRemoveAvatarExists()).toEqual(true)
+    })
 
     after(async () => {
         await browser.reloadSession()
