@@ -11,6 +11,8 @@ describe('Public profile test', async () => {
     let overviewPage: OverviewPage
     let profilePage: ProfilePage
     const user: UserModel = createUserModel(userData)
+    const userWithWrongAvatar: UserModel = createUserModel(userData)
+    userWithWrongAvatar.avatarPath = 'src/files/jpg_120x120_avatar_test.jpg'
 
     before(async () => {
         emailsPage = new EmailsPage(browser)
