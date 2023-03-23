@@ -9,12 +9,12 @@ class ProfilePage {
         this.browser = browser
     }
 
-    public async uploadProperAvatar(user: UserModel): Promise<void> {
+    public async uploadProperAvatar(avatarPath: string): Promise<void> {
         await this.getInputFile().waitForExist({
             timeoutMsg: 'File input field was not exist',
         })
         await this.showHiddenFileInput(this.browser)
-        const file: string = await this.browser.uploadFile(user.properAvatarPath)
+        const file: string = await this.browser.uploadFile(avatarPath)
         await this.getInputFile().setValue(file)
     }
 
@@ -29,31 +29,25 @@ class ProfilePage {
         return this.browser.$('[type="file"]')
     }
 
-
-
-
-
-
-
-    public async fillEmailComboBox(user: UserModel): Promise<void> {
+    public async fillEmailComboBox(email: string): Promise<void> {
         await this.getEmailComboBox().waitForClickable({
             timeoutMsg: 'Email ComboBox was not clickable'
         })
-        await this.getEmailComboBox().selectByVisibleText(user.email)
+        await this.getEmailComboBox().selectByVisibleText(email)
     }
 
-    public async fillFieldBio(user: UserModel): Promise<void> {
+    public async fillFieldBio(bio: string): Promise<void> {
         await this.getFieldBio().waitForDisplayed({
             timeoutMsg: 'Field Bio was not displayed'
         })
-        await this.getFieldBio().setValue(user.bio)
+        await this.getFieldBio().setValue(bio)
     }
 
-    public async fillFieldName(user: UserModel): Promise<void> {
+    public async fillFieldName(name: string): Promise<void> {
         await this.getFieldName().waitForDisplayed({
             timeoutMsg: 'Field Name was not displayed'
         })
-        await this.getFieldName().setValue(user.name)
+        await this.getFieldName().setValue(name)
     }
 
     public async openUrl(): Promise<void> {
@@ -86,11 +80,11 @@ class ProfilePage {
         await this.getButtonUpdate().click()
     }
 
-    public async selectPronounsCombobox(user: UserModel): Promise<void> {
+    public async selectPronounsCombobox(pronouns: string): Promise<void> {
         await this.getPronounsCombobox().waitForDisplayed({
             timeoutMsg: 'Pronouns combobox was not clickable'
         })
-        await this.getPronounsCombobox().selectByVisibleText(user.pronouns)
+        await this.getPronounsCombobox().selectByVisibleText(pronouns)
     }
 
     public async isButtonRemoveAvatarExists(): Promise<boolean> {

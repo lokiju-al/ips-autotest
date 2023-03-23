@@ -16,18 +16,18 @@ class LoginPage {
         await this.getButtonLogin().click()
     }
 
-    public async fillFieldLogin(user: UserModel): Promise<void> {
+    public async fillFieldLogin(login: string): Promise<void> {
         await this.getFieldLogin().waitForDisplayed({
             timeoutMsg: 'Login field was not displayed'
         })
-        await this.getFieldLogin().setValue(user.login)
+        await this.getFieldLogin().setValue(login)
     }
 
-    public async fillFieldPassword(user: UserModel): Promise<void> {
+    public async fillFieldPassword(password: string): Promise<void> {
         await this.getFieldPassword().waitForDisplayed({
             timeoutMsg: 'Password field was not displayed'
         })
-        await this.getFieldPassword().setValue(user.password)
+        await this.getFieldPassword().setValue(password)
     }
 
     public async openUrl(): Promise<void> {

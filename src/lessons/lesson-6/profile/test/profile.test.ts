@@ -11,8 +11,7 @@ describe('Public profile test', async () => {
     let overviewPage: OverviewPage
     let profilePage: ProfilePage
     const user: UserModel = createUserModel(userData)
-    const userWithWrongAvatar: UserModel = createUserModel(userData)
-    userWithWrongAvatar.avatarPath = 'src/files/jpg_120x120_avatar_test.jpg'
+    const wrongAvatar: string = 'src/files/bmp_120x120_avatar_test.bmp'
 
     before(async () => {
         emailsPage = new EmailsPage(browser)
@@ -20,8 +19,8 @@ describe('Public profile test', async () => {
         overviewPage = new OverviewPage(browser)
         profilePage = new ProfilePage(browser)
         await loginPage.openUrl()
-        await loginPage.fillFieldLogin(user)
-        await loginPage.fillFieldPassword(user)
+        await loginPage.fillFieldLogin(user.login)
+        await loginPage.fillFieldPassword(user.password)
         await loginPage.clickButtonLogin()
     })
 
@@ -29,13 +28,13 @@ describe('Public profile test', async () => {
         await profilePage.openUrl()
     })
 
-    // it('User should be able to change Name', async () => {
-    //     await profilePage.fillFieldName(user)
-    //     await profilePage.saveChanges()
-    //     await overviewPage.openUrl()
+    it('User should be able to change Name', async () => {
+        await profilePage.fillFieldName(user.name)
+        await profilePage.saveChanges()
+        await overviewPage.openUrl()
 
-    //     expect(await overviewPage.getNameText()).toEqual(user.name)
-    // })
+        expect(await overviewPage.getNameText()).toEqual(user.name)
+    })
 
     // it('User should be able to change Bio', async () => {
     //     await profilePage.fillFieldBio(user)
