@@ -11,7 +11,7 @@ describe('Public profile test', async () => {
     let overviewPage: OverviewPage
     let profilePage: ProfilePage
     const user: UserModel = createUserModel(userData)
-    const wrongAvatar: string = 'src/files/bmp_120x120_avatar_test.bmp'
+    const wrongAvatarPath: string = 'src/files/bmp_120x120_avatar_test.bmp'
 
     before(async () => {
         emailsPage = new EmailsPage(browser)
@@ -73,10 +73,8 @@ describe('Public profile test', async () => {
     // })
 
     it('Avatar with proper type should be uploaded in profile', async () => {
-        await profilePage.clickButtonRemoveAvatar()
-        await profilePage.uploadProperAvatar(user.avatarPath)
+        await profilePage.uploadProperAvatar(wrongAvatarPath)
         await profilePage.clickButtonSaveAvatar()
-        await profilePage.clickButtonEditAvatar()
 
         expect(await profilePage.isButtonRemoveAvatarExists()).toEqual(true)
     })

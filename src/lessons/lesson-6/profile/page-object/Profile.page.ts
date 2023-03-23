@@ -62,7 +62,6 @@ class ProfilePage {
     }
 
     public async clickButtonRemoveAvatar(): Promise<void> {
-        await this.clickButtonEditAvatar()
         if (await this.getButtonRemoveAvatar().isClickable()) await this.getButtonRemoveAvatar().click()
     }
 
@@ -122,6 +121,17 @@ class ProfilePage {
 
     private getPronounsCombobox(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@id="user_profile_pronouns_select"]')
+    }
+
+    private getAvatarImage(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@class="avatar-upload"]//img')
+    }
+
+    public clickButtonSaveAvatar(): Promise<void> {
+        await this.getButtonSaveAvatar().waitForClickable({
+            timeoutMsg: 'Avatar save button was not clickable'
+        })
+        await this.getButtonSaveAvatar().click()
     }
 }
 
