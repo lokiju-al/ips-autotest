@@ -7,6 +7,8 @@ describe('Login form test', async () => {
     let loginPage: LoginPage
     let mainPage: MainPage
     const user: UserModel = createUserModel(userData)
+    const userWithWrongPassword: UserModel = createUserModel(userData)
+    userWithWrongPassword.password = '1234'
 
     before(async () => {
         loginPage = new LoginPage(browser)
@@ -22,7 +24,7 @@ describe('Login form test', async () => {
         await loginPage.fillFieldPassword(user)
         await loginPage.clickButtonLogin()
         await mainPage.openUserMenu()
-        
+
         expect(await mainPage.getUserLoginText()).toEqual(user.login)
     })
 
@@ -36,8 +38,8 @@ describe('Login form test', async () => {
     })
 
     it('User should not be log in with wrong PASSWORD', async () => {
-        await loginPage.fillFieldEmail(user)
-        await loginPage.fillFieldPasswordWrong(user)
+        await loginPage.fillFieldEmail(userWithWrongPassword)
+        await loginPage.fillFieldPassword(userWithWrongPassword)
         await loginPage.clickButtonLogin()
 
         expect(await loginPage.getAlertText()).toEqual('Incorrect username or password.')

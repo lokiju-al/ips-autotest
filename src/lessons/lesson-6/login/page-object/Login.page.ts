@@ -37,13 +37,6 @@ class LoginPage {
         await this.getFieldPassword().setValue(user.password)
     }
 
-    public async fillFieldPasswordWrong(user: UserModel): Promise<void> {
-        await this.getFieldPassword().waitForDisplayed({
-            timeoutMsg: 'Password field was not displayed'
-        })
-        await this.getFieldPassword().setValue(user.passwordWrong)
-    }
-
     public getAlertText(): Promise<string> {
         return this.getAlert().getText()
     }

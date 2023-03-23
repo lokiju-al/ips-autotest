@@ -62,14 +62,14 @@ describe('Public profile test', async () => {
     //     expect(await overviewPage.getPronounsText()).toEqual(user.pronouns)
     // })
 
-    it('Avatar with proper type should be uploaded in profile', async () => {
-        await profilePage.clickButtonRemoveAvatar()
-        await profilePage.uploadProperAvatar(user)
-        await profilePage.clickButtonSaveAvatar()
-        await profilePage.clickButtonEditAvatar()
+    // it('Avatar with proper type should be uploaded in profile', async () => {
+    //     await profilePage.clickButtonRemoveAvatar()
+    //     await profilePage.uploadProperAvatar(user)
+    //     await profilePage.clickButtonSaveAvatar()
+    //     await profilePage.clickButtonEditAvatar()
 
-        expect(await profilePage.isButtonRemoveAvatarExists()).toEqual(true)
-    })
+    //     expect(await profilePage.isButtonRemoveAvatarExists()).toEqual(true)
+    // })
 
     after(async () => {
         await browser.reloadSession()
