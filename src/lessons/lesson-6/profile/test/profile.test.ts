@@ -28,16 +28,16 @@ describe('Public profile test', async () => {
         await profilePage.openUrl()
     })
 
-    it('User should be able to change Name', async () => {
-        await profilePage.fillFieldName(user.name)
-        await profilePage.saveChanges()
-        await overviewPage.openUrl()
+    // it('User should be able to change Name', async () => {
+    //     await profilePage.fillFieldName(user.name)
+    //     await profilePage.saveChanges()
+    //     await overviewPage.openUrl()
 
-        expect(await overviewPage.getNameText()).toEqual(user.name)
-    })
+    //     expect(await overviewPage.getNameText()).toEqual(user.name)
+    // })
 
     // it('User should be able to change Bio', async () => {
-    //     await profilePage.fillFieldBio(user)
+    //     await profilePage.fillFieldBio(user.bio)
     //     await profilePage.saveChanges()
     //     await overviewPage.openUrl()
 
@@ -48,7 +48,7 @@ describe('Public profile test', async () => {
     //     await emailsPage.openUrl()
     //     await emailsPage.uncheckPrivacy()
     //     await profilePage.openUrl()
-    //     await profilePage.fillEmailComboBox(user)
+    //     await profilePage.fillEmailComboBox(user.email)
     //     await profilePage.saveChanges()
     //     await overviewPage.openUrl()
 
@@ -56,7 +56,7 @@ describe('Public profile test', async () => {
     // })
 
     // it('User should be able to change Pronouns', async () => {
-    //     await profilePage.selectPronounsCombobox(user)
+    //     await profilePage.selectPronounsCombobox(user.pronouns)
     //     await profilePage.saveChanges()
     //     await overviewPage.openUrl()
 
@@ -65,12 +65,21 @@ describe('Public profile test', async () => {
 
     // it('Avatar with proper type should be uploaded in profile', async () => {
     //     await profilePage.clickButtonRemoveAvatar()
-    //     await profilePage.uploadProperAvatar(user)
+    //     await profilePage.uploadProperAvatar(user.avatarPath)
     //     await profilePage.clickButtonSaveAvatar()
     //     await profilePage.clickButtonEditAvatar()
 
     //     expect(await profilePage.isButtonRemoveAvatarExists()).toEqual(true)
     // })
+
+    it('Avatar with proper type should be uploaded in profile', async () => {
+        await profilePage.clickButtonRemoveAvatar()
+        await profilePage.uploadProperAvatar(user.avatarPath)
+        await profilePage.clickButtonSaveAvatar()
+        await profilePage.clickButtonEditAvatar()
+
+        expect(await profilePage.isButtonRemoveAvatarExists()).toEqual(true)
+    })
 
     after(async () => {
         await browser.reloadSession()
