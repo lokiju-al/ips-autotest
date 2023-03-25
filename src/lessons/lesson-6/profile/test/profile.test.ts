@@ -11,6 +11,7 @@ describe('Public profile test', async () => {
     let overviewPage: OverviewPage
     let profilePage: ProfilePage
     const user: UserModel = createUserModel(userData)
+    const firstAvatarPath: string = 'src/files/first_avatar.jpg'
     const wrongAvatarPath: string = 'src/files/bmp_120x120_avatar_test.bmp'
 
     before(async () => {
@@ -28,55 +29,54 @@ describe('Public profile test', async () => {
         await profilePage.openUrl()
     })
 
-    // it('User should be able to change Name', async () => {
-    //     await profilePage.fillFieldName(user.name)
-    //     await profilePage.saveChanges()
-    //     await overviewPage.openUrl()
+    it('User should be able to change Name', async () => {
+        await profilePage.fillFieldName(user.name)
+        await profilePage.saveChanges()
+        await overviewPage.openUrl()
 
-    //     expect(await overviewPage.getNameText()).toEqual(user.name)
-    // })
+        expect(await overviewPage.getNameText()).toEqual(user.name)
+    })
 
-    // it('User should be able to change Bio', async () => {
-    //     await profilePage.fillFieldBio(user.bio)
-    //     await profilePage.saveChanges()
-    //     await overviewPage.openUrl()
+    it('User should be able to change Bio', async () => {
+        await profilePage.fillFieldBio(user.bio)
+        await profilePage.saveChanges()
+        await overviewPage.openUrl()
 
-    //     expect(await overviewPage.getBioText()).toEqual(user.bio)
-    // })
+        expect(await overviewPage.getBioText()).toEqual(user.bio)
+    })
 
-    // it('User should be able to set Email visible', async () => {
-    //     await emailsPage.openUrl()
-    //     await emailsPage.uncheckPrivacy()
-    //     await profilePage.openUrl()
-    //     await profilePage.fillEmailComboBox(user.email)
-    //     await profilePage.saveChanges()
-    //     await overviewPage.openUrl()
+    it('User should be able to set Email visible', async () => {
+        await emailsPage.openUrl()
+        await emailsPage.uncheckPrivacy()
+        await profilePage.openUrl()
+        await profilePage.fillEmailComboBox(user.email)
+        await profilePage.saveChanges()
+        await overviewPage.openUrl()
 
-    //     expect(await overviewPage.getEmailText()).toEqual(user.email)
-    // })
+        expect(await overviewPage.getEmailText()).toEqual(user.email)
+    })
 
-    // it('User should be able to change Pronouns', async () => {
-    //     await profilePage.selectPronounsCombobox(user.pronouns)
-    //     await profilePage.saveChanges()
-    //     await overviewPage.openUrl()
+    it('User should be able to change Pronouns', async () => {
+        await profilePage.selectPronounsCombobox(user.pronouns)
+        await profilePage.saveChanges()
+        await overviewPage.openUrl()
 
-    //     expect(await overviewPage.getPronounsText()).toEqual(user.pronouns)
-    // })
-
-    // it('Avatar with proper type should be uploaded in profile', async () => {
-    //     await profilePage.clickButtonRemoveAvatar()
-    //     await profilePage.uploadProperAvatar(user.avatarPath)
-    //     await profilePage.clickButtonSaveAvatar()
-    //     await profilePage.clickButtonEditAvatar()
-
-    //     expect(await profilePage.isButtonRemoveAvatarExists()).toEqual(true)
-    // })
+        expect(await overviewPage.getPronounsText()).toEqual(user.pronouns)
+    })
 
     it('Avatar with proper type should be uploaded in profile', async () => {
-        await profilePage.uploadProperAvatar(wrongAvatarPath)
-        await profilePage.clickButtonSaveAvatar()
+        await profilePage.uploadAvatarFile(firstAvatarPath)
+        const oldAvatarPath: string = await profilePage.saveAvatarImagePath()
+        await profilePage.uploadAvatarFile(user.avatarPath)
+        const newAvatarPathesIsEqual: Boolean = oldAvatarPath === await profilePage.saveAvatarImagePath()
 
-        expect(await profilePage.isButtonRemoveAvatarExists()).toEqual(true)
+        expect(newAvatarPathesIsEqual).toEqual(false)
+    })
+
+    it('Avatar with wrong type should not be uploaded in profile', async () => {
+        await profilePage.uploadWrongAvatarFile(wrongAvatarPath)
+
+        expect(await profilePage.getAlertBadFileText()).toEqual('We only support PNG, GIF, or JPG pictures.')
     })
 
     after(async () => {

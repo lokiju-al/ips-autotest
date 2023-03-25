@@ -1,5 +1,4 @@
 import { ChainablePromiseElement } from 'webdriverio'
-import { UserModel } from '../model/user.model'
 
 class ProfilePage {
     protected browser: WebdriverIO.Browser
@@ -7,26 +6,6 @@ class ProfilePage {
 
     constructor(browser: WebdriverIO.Browser) {
         this.browser = browser
-    }
-
-    public async uploadProperAvatar(avatarPath: string): Promise<void> {
-        await this.getInputFile().waitForExist({
-            timeoutMsg: 'File input field was not exist',
-        })
-        await this.showHiddenFileInput(this.browser)
-        const file: string = await this.browser.uploadFile(avatarPath)
-        await this.getInputFile().setValue(file)
-    }
-
-    private async showHiddenFileInput(browser: WebdriverIO.Browser): Promise<void> {
-        await browser.execute(() => {
-            const htmlElement = document.querySelector('[type="file"]') as HTMLElement
-            htmlElement.style.cssText = 'display:block !important; opacity: 1; position: inherit;'
-        })
-    }
-
-    private getInputFile(): ChainablePromiseElement<WebdriverIO.Element> {
-        return this.browser.$('[type="file"]')
     }
 
     public async fillEmailComboBox(email: string): Promise<void> {
@@ -50,26 +29,22 @@ class ProfilePage {
         await this.getFieldName().setValue(name)
     }
 
+    public async getAlertBadFileText(): Promise<string> {
+        await this.getAlertBadFile().waitForDisplayed({
+            timeoutMsg: 'Alert bad file was not displayed'
+        })
+        return await this.getAlertBadFile().getText()
+    }
+
     public async openUrl(): Promise<void> {
         await this.browser.url(this.url)
     }
 
-    public async clickButtonEditAvatar(): Promise<void> {
-        await this.getButtonEditAvatar().waitForClickable({
-            timeoutMsg: 'Avatar edit button was not clickable'
+    public saveAvatarImagePath(): Promise<string> {
+        this.getAvatarImage().waitForDisplayed({
+            timeoutMsg: 'Avatar was not displayed'
         })
-        await this.getButtonEditAvatar().click()
-    }
-
-    public async clickButtonRemoveAvatar(): Promise<void> {
-        if (await this.getButtonRemoveAvatar().isClickable()) await this.getButtonRemoveAvatar().click()
-    }
-
-    public async clickButtonSaveAvatar(): Promise<void> {
-        await this.getButtonSaveAvatar().waitForClickable({
-            timeoutMsg: 'Avatar save button was not clickable'
-        })
-        await this.getButtonSaveAvatar().click()
+        return this.getAvatarImage().getAttribute("src")
     }
 
     public async saveChanges(): Promise<void> {
@@ -86,17 +61,30 @@ class ProfilePage {
         await this.getPronounsCombobox().selectByVisibleText(pronouns)
     }
 
-    public async isButtonRemoveAvatarExists(): Promise<boolean> {
-        if (await this.getButtonRemoveAvatar().isClickable()) return true
-        return false
+    public async uploadAvatarFile(avatarPath: string): Promise<void> {
+        await this.getInputFile().waitForExist({
+            timeoutMsg: 'File input field was not exist',
+        })
+        await this.showHiddenFileInput(this.browser)
+        const file: string = await this.browser.uploadFile(avatarPath)
+        await this.getInputFile().setValue(file)
+        await this.getButtonSaveAvatar().waitForClickable({
+            timeoutMsg: 'Avatar save button was not clickable'
+        })
+        await this.getButtonSaveAvatar().click()
     }
 
-    private getButtonEditAvatar(): ChainablePromiseElement<WebdriverIO.Element> {
-        return this.browser.$('//*[@class="octicon octicon-pencil"]')
+    public async uploadWrongAvatarFile(avatarPath: string): Promise<void> {
+        await this.getInputFile().waitForExist({
+            timeoutMsg: 'File input field was not exist',
+        })
+        await this.showHiddenFileInput(this.browser)
+        const file: string = await this.browser.uploadFile(avatarPath)
+        await this.getInputFile().setValue(file)
     }
 
-    private getButtonRemoveAvatar(): ChainablePromiseElement<WebdriverIO.Element> {
-        return this.browser.$('//*[@value="reset"]')
+    private getAlertBadFile(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@class="upload-state color-fg-danger bad-file"]')
     }
 
     private getButtonSaveAvatar(): ChainablePromiseElement<WebdriverIO.Element> {
@@ -119,6 +107,10 @@ class ProfilePage {
         return this.browser.$('//*[@id="user_profile_name"]')
     }
 
+    private getInputFile(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('[type="file"]')
+    }
+
     private getPronounsCombobox(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@id="user_profile_pronouns_select"]')
     }
@@ -127,11 +119,11 @@ class ProfilePage {
         return this.browser.$('//*[@class="avatar-upload"]//img')
     }
 
-    public clickButtonSaveAvatar(): Promise<void> {
-        await this.getButtonSaveAvatar().waitForClickable({
-            timeoutMsg: 'Avatar save button was not clickable'
+    private async showHiddenFileInput(browser: WebdriverIO.Browser): Promise<void> {
+        await browser.execute(() => {
+            const htmlElement = document.querySelector('[type="file"]') as HTMLElement
+            htmlElement.style.cssText = 'display:block !important; opacity: 1; position: inherit;'
         })
-        await this.getButtonSaveAvatar().click()
     }
 }
 
