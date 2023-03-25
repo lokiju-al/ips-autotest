@@ -1,6 +1,4 @@
 import { ChainablePromiseElement } from 'webdriverio'
-import { UserModel } from '../model/user.model'
-
 class LoginPage {
     protected browser: WebdriverIO.Browser
     protected url = 'https://github.com/login'

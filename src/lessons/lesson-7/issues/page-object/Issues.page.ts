@@ -1,8 +1,7 @@
 import { ChainablePromiseElement } from 'webdriverio'
 
-class LoginPage {
+class IssuesPage {
     protected browser: WebdriverIO.Browser
-    protected url = 'https://github.com/login'
 
     constructor(browser: WebdriverIO.Browser) {
         this.browser = browser
@@ -29,8 +28,8 @@ class LoginPage {
         await this.getFieldPassword().setValue(password)
     }
 
-    public async openUrl(): Promise<void> {
-        await this.browser.url(this.url)
+    public async openUrl(url: string): Promise<void> {
+        await this.browser.url(url)
     }
 
     private getButtonLogin(): ChainablePromiseElement<WebdriverIO.Element> {
@@ -45,5 +44,5 @@ class LoginPage {
 }
 
 export {
-    LoginPage,
+    IssuesPage,
 }
