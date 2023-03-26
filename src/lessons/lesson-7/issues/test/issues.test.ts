@@ -1,3 +1,4 @@
+import { COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD } from '../../../../../credential'
 import { LoginPage } from '../page-object/Login.page'
 import { IssuesPage } from '../page-object/Issues.page'
 import { userData } from '../data/user.data'
@@ -56,6 +57,63 @@ describe('Issues test', async () => {
     //     await issuesPage.uploadCommentFile(invalidFile)
 
     //     expect(await issuesPage.getAlertInvalidFileText()).toEqual('We don’t support that file type. Try again with a GIF, JPEG, JPG, MOV, MP4, PNG, SVG, WEBM, CSV, DOCX, FODG, FODP, FODS, FODT, GZ, LOG, MD, ODF, ODG, ODP, ODS, ODT, PATCH, PDF, PPTX, TGZ, TXT, XLS, XLSX or ZIP.')
+    // })
+
+    // it('The user should be able to leave comments if they are enabled', async () => {
+    //     await issuesPage.clickButtonNewIssue()
+    //     await issuesPage.fillFieldTitle(issue.title)
+    //     await issuesPage.clickButtonSubmitNewIssue()
+    //     const urlIssue: string = await browser.getUrl()
+    //     await issuesPage.openUserMenu()
+    //     await issuesPage.clickButtonSignOut()
+    //     await loginPage.openUrl()
+    //     await loginPage.fillFieldLogin(COMMENTATOR_LOGIN)
+    //     await loginPage.fillFieldPassword(COMMENTATOR_PASSWORD)
+    //     await loginPage.clickButtonLogin()
+    //     await browser.url(urlIssue)
+    //     await issuesPage.fillFieldComment(issue.commentText)
+    //     await issuesPage.clickButtonSaveComment()
+
+    //     expect(await issuesPage.getSavedCommentText()).toEqual(issue.commentText)
+    //     await issuesPage.openUserMenu()
+    //     await issuesPage.clickButtonSignOut()
+    //     await loginPage.openUrl()
+    //     await loginPage.fillFieldLogin(user.login)
+    //     await loginPage.fillFieldPassword(user.password)
+    //     await loginPage.clickButtonLogin()
+    // })
+
+    // it('The user should be able to block comments', async () => {
+    //     await issuesPage.clickButtonNewIssue()
+    //     await issuesPage.fillFieldTitle(issue.title)
+    //     await issuesPage.clickButtonSubmitNewIssue()
+    //     await issuesPage.clickButtonLockComments()
+    //     await issuesPage.clickButtonLockCommentsApply()
+    //     const urlIssue: string = await browser.getUrl()
+    //     await issuesPage.openUserMenu()
+    //     await issuesPage.clickButtonSignOut()
+    //     await loginPage.openUrl()
+    //     await loginPage.fillFieldLogin(COMMENTATOR_LOGIN)
+    //     await loginPage.fillFieldPassword(COMMENTATOR_PASSWORD)
+    //     await loginPage.clickButtonLogin()
+    //     await browser.url(urlIssue)
+
+    //     expect(await issuesPage.getMessageLockCommentsText()).toEqual('This conversation has been locked and limited to collaborators.')
+    //     await issuesPage.openUserMenu()
+    //     await issuesPage.clickButtonSignOut()
+    //     await loginPage.openUrl()
+    //     await loginPage.fillFieldLogin(user.login)
+    //     await loginPage.fillFieldPassword(user.password)
+    //     await loginPage.clickButtonLogin()
+    // })
+
+    // it('The user should be able to close the issue', async () => {
+    //     await issuesPage.clickButtonNewIssue()
+    //     await issuesPage.fillFieldTitle(issue.title)
+    //     await issuesPage.clickButtonSubmitNewIssue()
+    //     await issuesPage.clickButtonCloseIssue()
+
+    //     expect(await issuesPage.getMessageClosedIssueText()).toEqual('Closed')
     // })
 
     after(async () => {
