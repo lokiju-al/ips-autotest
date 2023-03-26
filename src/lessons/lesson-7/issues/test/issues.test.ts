@@ -13,10 +13,12 @@ describe('Issues test', async () => {
 
     before(async () => {
         loginPage = new LoginPage(browser)
+        issuesPage = new IssuesPage(browser)
         await loginPage.openUrl()
         await loginPage.fillFieldLogin(user.login)
         await loginPage.fillFieldPassword(user.password)
         await loginPage.clickButtonLogin()
+        await browser.pause(1000)
     })
 
     beforeEach(async () => {
