@@ -11,6 +11,7 @@ describe('Issues test', async () => {
     const user: UserModel = createUserModel(userData)
     const issue: IssueModel = createIssueModel(issueData)
     const invalidTitle: string = '123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 12345'
+    const invalidFile: string = 'src/files/exe_git-bash.exe'
 
     before(async () => {
         loginPage = new LoginPage(browser)
@@ -41,13 +42,21 @@ describe('Issues test', async () => {
     //     expect(await issuesPage.getAlertInvalidTitleText()).toEqual('There was an error creating your Issue: title is too long (maximum is 256 characters).')
     // })
 
-    it('The user should be able to successfully add valid format files to the task', async () => {
-        await issuesPage.clickButtonNewIssue()
-        await issuesPage.fillFieldTitle(invalidTitle)
-        await issuesPage.clickButtonSubmitNewIssue()
+    // it('The user should be able to successfully add valid format files to the task', async () => {
+    //     await issuesPage.clickButtonNewIssue()
+    //     await issuesPage.fillFieldTitle(issue.title)
+    //     await issuesPage.uploadCommentFile(issue.commentFilePath)
+    //     await issuesPage.clickButtonSubmitNewIssue()
 
-        expect(await issuesPage.getAlertInvalidTitleText()).toEqual('There was an error creating your Issue: title is too long (maximum is 256 characters).')
-    })
+    //     expect(await issuesPage.getCommentFileAttribute()).toEqual('_blank')
+    // })
+
+    // it('The user should not be able to successfully add invalid format files to the task', async () => {
+    //     await issuesPage.clickButtonNewIssue()
+    //     await issuesPage.uploadCommentFile(invalidFile)
+
+    //     expect(await issuesPage.getAlertInvalidFileText()).toEqual('We don’t support that file type. Try again with a GIF, JPEG, JPG, MOV, MP4, PNG, SVG, WEBM, CSV, DOCX, FODG, FODP, FODS, FODT, GZ, LOG, MD, ODF, ODG, ODP, ODS, ODT, PATCH, PDF, PPTX, TGZ, TXT, XLS, XLSX or ZIP.')
+    // })
 
     after(async () => {
         await browser.reloadSession()

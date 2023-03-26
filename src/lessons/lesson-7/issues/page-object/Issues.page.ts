@@ -28,8 +28,19 @@ class IssuesPage {
         await this.getFieldTitle().setValue(title)
     }
 
-    public getAlertInvalidTitleText(): Promise<string> {
+    public async getAlertInvalidTitleText(): Promise<string> {
+        await this.getAlertInvalidTitle().waitForDisplayed({
+            timeoutMsg: 'Alert Invalid Title was not displayed'
+        })
         return this.getAlertInvalidTitle().getText()
+    }
+
+    public getAlertInvalidFileText(): Promise<string> {
+        return this.getAlertInvalidFile().getText()
+    }
+
+    public getCommentFileAttribute(): Promise<string> {
+        return this.getCommentFile().getAttribute('target')
     }
 
     public getIssueTitleText(): Promise<string> {
@@ -39,16 +50,33 @@ class IssuesPage {
     public async openUrl(url: string): Promise<void> {
         await this.browser.url(url)
     }
-    
+
+    public async uploadCommentFile(filePath: string): Promise<void> {
+        await this.getInputFile().waitForExist({
+            timeoutMsg: 'File input field was not exist',
+        })
+        const file: string = await this.browser.uploadFile(filePath)
+        await this.getInputFile().setValue(file)
+        await this.browser.pause(2000)
+    }
 
 
 
 
-    
+
+
+    private getAlertInvalidFile(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@class="error bad-file"]')
+    }
+
     private getAlertInvalidTitle(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@role="alert"]')
     }
-    
+
+    private getCommentFile(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//p[@dir="auto"]//a')
+    }
+
     private getIssueTitle(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@class="js-issue-title markdown-title"]')
     }
@@ -63,6 +91,10 @@ class IssuesPage {
 
     private getFieldTitle(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@id="issue_title"]')
+    }
+
+    private getInputFile(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('[type="file"]')
     }
 }
 
