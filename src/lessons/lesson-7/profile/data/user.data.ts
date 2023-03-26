@@ -5,7 +5,7 @@ type UserData = {
     email: string,
     password: string,
     urlOverviewPage: string,
-    avatarPath: string,
+    avatarFilePath: string,
     name: string,
     bio: string,
     pronouns: string,
@@ -16,7 +16,7 @@ const userData: UserData = {
     email: EMAIL,
     password: PASSWORD,
     urlOverviewPage: URL_OVERVIEW_PAGE,
-    avatarPath: 'src/files/jpg_120x120_avatar_test.jpg',
+    avatarFilePath: 'src/files/jpg_120x120_avatar_test.jpg',
     pronouns: 'he/him',
     bio: 'ё2',
     name: 'Alex'

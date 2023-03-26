@@ -28,6 +28,10 @@ class IssuesPage {
         await this.getFieldTitle().setValue(title)
     }
 
+    public getAlertInvalidTitleText(): Promise<string> {
+        return this.getAlertInvalidTitle().getText()
+    }
+
     public getIssueTitleText(): Promise<string> {
         return this.getIssueTitle().getText()
     }
@@ -40,6 +44,10 @@ class IssuesPage {
 
 
 
+    
+    private getAlertInvalidTitle(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@role="alert"]')
+    }
     
     private getIssueTitle(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@class="js-issue-title markdown-title"]')

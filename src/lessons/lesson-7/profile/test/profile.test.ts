@@ -11,8 +11,8 @@ describe('Public profile test', async () => {
     let overviewPage: OverviewPage
     let profilePage: ProfilePage
     const user: UserModel = createUserModel(userData)
-    const firstAvatarPath: string = 'src/files/first_avatar.jpg'
-    const wrongAvatarPath: string = 'src/files/bmp_120x120_avatar_test.bmp'
+    const firstAvatarFilePath: string = 'src/files/first_avatar.jpg'
+    const wrongAvatarFilePath: string = 'src/files/bmp_120x120_avatar_test.bmp'
 
     before(async () => {
         emailsPage = new EmailsPage(browser)
@@ -65,16 +65,16 @@ describe('Public profile test', async () => {
     })
 
     it('Avatar with proper type should be uploaded in profile', async () => {
-        await profilePage.uploadAvatarFile(firstAvatarPath)
-        const oldAvatarPath: string = await profilePage.saveAvatarImagePath()
-        await profilePage.uploadAvatarFile(user.avatarPath)
-        const newAvatarPathesIsEqual: Boolean = oldAvatarPath === await profilePage.saveAvatarImagePath()
+        await profilePage.uploadAvatarFile(firstAvatarFilePath)
+        const firstAvatarImagePath: string = await profilePage.saveAvatarImagePath()
+        await profilePage.uploadAvatarFile(user.avatarFilePath)
+        const newAvatarImagePathesIsEqual: Boolean = firstAvatarImagePath === await profilePage.saveAvatarImagePath()
 
-        expect(newAvatarPathesIsEqual).toEqual(false)
+        expect(newAvatarImagePathesIsEqual).toEqual(false)
     })
 
     it('Avatar with wrong type should not be uploaded in profile', async () => {
-        await profilePage.uploadWrongAvatarFile(wrongAvatarPath)
+        await profilePage.uploadWrongAvatarFile(wrongAvatarFilePath)
 
         expect(await profilePage.getAlertBadFileText()).toEqual('We only support PNG, GIF, or JPG pictures.')
     })

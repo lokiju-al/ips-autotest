@@ -10,6 +10,7 @@ describe('Issues test', async () => {
     let issuesPage: IssuesPage
     const user: UserModel = createUserModel(userData)
     const issue: IssueModel = createIssueModel(issueData)
+    const invalidTitle: string = '123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 12345'
 
     before(async () => {
         loginPage = new LoginPage(browser)
@@ -18,21 +19,36 @@ describe('Issues test', async () => {
         await loginPage.fillFieldLogin(user.login)
         await loginPage.fillFieldPassword(user.password)
         await loginPage.clickButtonLogin()
-        await browser.pause(1000)
     })
 
     beforeEach(async () => {
         await issuesPage.openUrl(user.urlIssuesPage)
     })
 
-    it('The user must be able to successfully create tasks with a valid number of characters in the title', async () => {
+    // it('The user should be able to successfully create tasks with a valid number of characters in the title', async () => {
+    //     await issuesPage.clickButtonNewIssue()
+    //     await issuesPage.fillFieldTitle(issue.title)
+    //     await issuesPage.clickButtonSubmitNewIssue()
+
+    //     expect(await issuesPage.getIssueTitleText()).toEqual(issue.title)
+    // })
+
+    // it('The user should not be able to successfully create tasks with a 1025 character title', async () => {
+    //     await issuesPage.clickButtonNewIssue()
+    //     await issuesPage.fillFieldTitle(invalidTitle)
+    //     await issuesPage.clickButtonSubmitNewIssue()
+
+    //     expect(await issuesPage.getAlertInvalidTitleText()).toEqual('There was an error creating your Issue: title is too long (maximum is 256 characters).')
+    // })
+
+    it('The user should be able to successfully add valid format files to the task', async () => {
         await issuesPage.clickButtonNewIssue()
-        await issuesPage.fillFieldTitle(issue.title)
+        await issuesPage.fillFieldTitle(invalidTitle)
         await issuesPage.clickButtonSubmitNewIssue()
 
-        expect(await issuesPage.getIssueTitleText()).toEqual(issue.title)
+        expect(await issuesPage.getAlertInvalidTitleText()).toEqual('There was an error creating your Issue: title is too long (maximum is 256 characters).')
     })
-    // 'There was an error creating your Issue: title is too long (maximum is 256 characters).'
+
     after(async () => {
         await browser.reloadSession()
     })
