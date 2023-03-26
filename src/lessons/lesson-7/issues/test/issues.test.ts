@@ -20,10 +20,10 @@ describe('Issues test', async () => {
     })
 
     beforeEach(async () => {
-        await issuesPage.openUrl(issue.url)
+        await issuesPage.openUrl(user.urlIssuesPage)
     })
 
-    it('User should be able to change Name', async () => {
+    it('The user must be able to successfully create tasks with a valid number of characters in the title', async () => {
         // await profilePage.fillFieldName(user.name)
         // await profilePage.saveChanges()
         // await overviewPage.openUrl()

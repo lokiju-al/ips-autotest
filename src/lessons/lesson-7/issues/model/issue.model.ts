@@ -1,12 +1,12 @@
 import { IssueData } from '../data/issue.data'
 
 type IssueModel = {
-    url: string,
+    title: string,
 }
 
 function createIssueModel(data: IssueData): IssueModel {
     return {
-        url: data.url,
+        title: data.title,
     }
 }
 

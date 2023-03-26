@@ -25,7 +25,7 @@ class OverviewPage {
     }
 
     public async openUrl(): Promise<void> {
-        await this.browser.url(userData.userUrl)
+        await this.browser.url(userData.urlOverviewPage)
     }
 
     private getBio(): ChainablePromiseElement<WebdriverIO.Element> {
