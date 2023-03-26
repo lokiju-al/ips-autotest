@@ -14,6 +14,20 @@ class IssuesPage {
         await this.getButtonCloseIssue().click()
     }
 
+    // public async clickButtonLabelByFilter(): Promise<void> {
+    //     await this.getButtonLabelByFilter().waitForClickable({
+    //         timeoutMsg: 'Button Label By Filter was not clickable'
+    //     })
+    //     await this.getButtonLabelByFilter().click()
+    // }
+
+    public async clickButtonLabels(): Promise<void> {
+        await this.getButtonLabels().waitForClickable({
+            timeoutMsg: 'Button Labels was not clickable'
+        })
+        await this.getButtonLabels().click()
+    }
+
     public async clickButtonLockComments(): Promise<void> {
         await this.getButtonLockComments().waitForClickable({
             timeoutMsg: 'Button Lock Comments was not clickable'
@@ -61,6 +75,13 @@ class IssuesPage {
             timeoutMsg: 'Comment field was not displayed'
         })
         await this.getFieldComment().setValue(comment)
+    }
+
+    public async fillFieldFilterLabels(labelName: string): Promise<void> {
+        await this.getFieldFilterLabels().waitForDisplayed({
+            timeoutMsg: 'Field Filter Labels was not displayed'
+        })
+        await this.getFieldFilterLabels().setValue(labelName)
     }
 
     public async fillFieldTitle(title: string): Promise<void> {
@@ -146,6 +167,14 @@ class IssuesPage {
         return this.browser.$('//*[@data-default-action-text="Close issue"]')
     }
 
+    // private getButtonLabelByFilter(): ChainablePromiseElement<WebdriverIO.Element> {
+    //     return this.browser.$('//*[@role="menuitemcheckbox"]')
+    // }
+
+    private getButtonLabels(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@data-hotkey="l"]')
+    }
+
     private getButtonLockComments(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@class="octicon octicon-lock"]')
     }
@@ -172,6 +201,10 @@ class IssuesPage {
 
     private getFieldComment(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@id="new_comment_field"]')
+    }
+
+    private getFieldFilterLabels(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@aria-label="Filter labels"]')
     }
 
     private getFieldTitle(): ChainablePromiseElement<WebdriverIO.Element> {

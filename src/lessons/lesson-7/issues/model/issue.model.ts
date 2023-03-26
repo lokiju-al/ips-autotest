@@ -4,13 +4,17 @@ type IssueModel = {
     title: string,
     commentFilePath: string,
     commentText: string,
+    url: string,
+    tag: string,
 }
 
 function createIssueModel(data: IssueData): IssueModel {
     return {
         title: data.title,
         commentFilePath: data.commentFilePath,
-        commentText: data.commentText
+        commentText: data.commentText,
+        url: data.url,
+        tag: data.tag
     }
 }
 

@@ -1,6 +1,7 @@
 import { COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD } from '../../../../../credential'
 import { LoginPage } from '../page-object/Login.page'
 import { IssuesPage } from '../page-object/Issues.page'
+import { LabelsPage } from '../page-object/Labels.page'
 import { userData } from '../data/user.data'
 import { UserModel, createUserModel } from '../model/user.model'
 import { issueData } from '../data/issue.data'
@@ -9,6 +10,7 @@ import { IssueModel, createIssueModel } from '../model/issue.model'
 describe('Issues test', async () => {
     let loginPage: LoginPage
     let issuesPage: IssuesPage
+    let labelsPage: LabelsPage
     const user: UserModel = createUserModel(userData)
     const issue: IssueModel = createIssueModel(issueData)
     const invalidTitle: string = '123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 12345'
@@ -17,6 +19,7 @@ describe('Issues test', async () => {
     before(async () => {
         loginPage = new LoginPage(browser)
         issuesPage = new IssuesPage(browser)
+        labelsPage = new LabelsPage(browser)
         await loginPage.openUrl()
         await loginPage.fillFieldLogin(user.login)
         await loginPage.fillFieldPassword(user.password)
@@ -63,14 +66,14 @@ describe('Issues test', async () => {
     //     await issuesPage.clickButtonNewIssue()
     //     await issuesPage.fillFieldTitle(issue.title)
     //     await issuesPage.clickButtonSubmitNewIssue()
-    //     const urlIssue: string = await browser.getUrl()
+    //     issue.url = await browser.getUrl()
     //     await issuesPage.openUserMenu()
     //     await issuesPage.clickButtonSignOut()
     //     await loginPage.openUrl()
     //     await loginPage.fillFieldLogin(COMMENTATOR_LOGIN)
     //     await loginPage.fillFieldPassword(COMMENTATOR_PASSWORD)
     //     await loginPage.clickButtonLogin()
-    //     await browser.url(urlIssue)
+    //     await browser.url(issue.url)
     //     await issuesPage.fillFieldComment(issue.commentText)
     //     await issuesPage.clickButtonSaveComment()
 
@@ -89,14 +92,14 @@ describe('Issues test', async () => {
     //     await issuesPage.clickButtonSubmitNewIssue()
     //     await issuesPage.clickButtonLockComments()
     //     await issuesPage.clickButtonLockCommentsApply()
-    //     const urlIssue: string = await browser.getUrl()
+    //     issue.url = await browser.getUrl()
     //     await issuesPage.openUserMenu()
     //     await issuesPage.clickButtonSignOut()
     //     await loginPage.openUrl()
     //     await loginPage.fillFieldLogin(COMMENTATOR_LOGIN)
     //     await loginPage.fillFieldPassword(COMMENTATOR_PASSWORD)
     //     await loginPage.clickButtonLogin()
-    //     await browser.url(urlIssue)
+    //     await browser.url(issue.url)
 
     //     expect(await issuesPage.getMessageLockCommentsText()).toEqual('This conversation has been locked and limited to collaborators.')
     //     await issuesPage.openUserMenu()
@@ -115,6 +118,28 @@ describe('Issues test', async () => {
 
     //     expect(await issuesPage.getMessageClosedIssueText()).toEqual('Closed')
     // })
+
+    it('The user should be able to find an issue by an existing tag', async () => {
+        await labelsPage.openUrl(user.urlLabelsPage)
+        await labelsPage.clickButtonNewLabel()
+        await labelsPage.fillFieldLabelName(issue.tag)
+        await labelsPage.clickButtonCreateLabel()
+        await issuesPage.openUrl(user.urlIssuesPage)
+        await issuesPage.clickButtonNewIssue()
+        await issuesPage.fillFieldTitle(issue.tag)
+        await issuesPage.clickButtonSubmitNewIssue()
+        await issuesPage.clickButtonLabels()
+        await issuesPage.fillFieldFilterLabels(issue.tag)
+        await browser.pause(1000)
+        await browser.keys('Enter')
+        await issuesPage.clickButtonLabels()
+        await labelsPage.openUrl(user.urlLabelsPage)
+        await labelsPage.fillFieldSearchAllLabels(issue.tag)
+        await browser.keys('Enter')
+        await labelsPage.clickButtonLabelByFilter()
+
+        expect(await labelsPage.getButtonIssueFindByLabelText()).toEqual(issue.tag)
+    })
 
     after(async () => {
         await browser.reloadSession()
