@@ -24,13 +24,13 @@ describe('Issues test', async () => {
     })
 
     it('The user must be able to successfully create tasks with a valid number of characters in the title', async () => {
-        // await profilePage.fillFieldName(user.name)
-        // await profilePage.saveChanges()
-        // await overviewPage.openUrl()
+        await issuesPage.clickButtonNewIssue()
+        await issuesPage.fillFieldTitle(issue.title)
+        await issuesPage.clickButtonSubmitNewIssue()
 
-        // expect(await overviewPage.getNameText()).toEqual(user.name)
+        expect(await issuesPage.getIssueTitleText()).toEqual(issue.title)
     })
-
+    // 'There was an error creating your Issue: title is too long (maximum is 256 characters).'
     after(async () => {
         await browser.reloadSession()
     })
