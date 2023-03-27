@@ -1,4 +1,4 @@
-import { LOGIN, EMAIL, PASSWORD, USER_URL } from '../../../../../credential'
+import { LOGIN, EMAIL, PASSWORD } from '../../../../../credential'
 
 type UserData = {
     login: string,

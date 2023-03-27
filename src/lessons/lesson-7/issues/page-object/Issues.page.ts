@@ -158,21 +158,12 @@ class IssuesPage {
         await this.browser.pause(2000)
     }
 
-
-
-
-
-
     private getAlertInvalidFile(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@class="error bad-file"]')
     }
 
     private getAlertInvalidTitle(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@role="alert"]')
-    }
-
-    private getCommentFile(): ChainablePromiseElement<WebdriverIO.Element> {
-        return this.browser.$('//p[@dir="auto"]//a')
     }
 
     private getButtonDeleteIssue(): ChainablePromiseElement<WebdriverIO.Element> {
@@ -213,6 +204,10 @@ class IssuesPage {
 
     private getButtonSubmitNewIssue(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@class="btn-primary btn ml-2"]')
+    }
+
+    private getCommentFile(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//p[@dir="auto"]//a')
     }
 
     private getFieldComment(): ChainablePromiseElement<WebdriverIO.Element> {

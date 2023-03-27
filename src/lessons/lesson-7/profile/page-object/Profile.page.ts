@@ -87,6 +87,10 @@ class ProfilePage {
         return this.browser.$('//*[@class="upload-state color-fg-danger bad-file"]')
     }
 
+    private getAvatarImage(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@class="avatar-upload"]//img')
+    }
+
     private getButtonSaveAvatar(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@value="save"]')
     }
@@ -113,10 +117,6 @@ class ProfilePage {
 
     private getPronounsCombobox(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@id="user_profile_pronouns_select"]')
-    }
-
-    private getAvatarImage(): ChainablePromiseElement<WebdriverIO.Element> {
-        return this.browser.$('//*[@class="avatar-upload"]//img')
     }
 
     private async showHiddenFileInput(browser: WebdriverIO.Browser): Promise<void> {
