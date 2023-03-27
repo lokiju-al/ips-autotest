@@ -7,19 +7,26 @@ class IssuesPage {
         this.browser = browser
     }
 
+    public async clickButtonDeleteIssue(): Promise<void> {
+        await this.getButtonDeleteIssue().waitForClickable({
+            timeoutMsg: 'Button Delete Issue was not clickable'
+        })
+        await this.getButtonDeleteIssue().click()
+    }
+
+    public async clickButtonDeleteIssueApply(): Promise<void> {
+        await this.getButtonDeleteIssueApply().waitForClickable({
+            timeoutMsg: 'Button Delete Issue Apply was not clickable'
+        })
+        await this.getButtonDeleteIssueApply().click()
+    }
+
     public async clickButtonCloseIssue(): Promise<void> {
         await this.getButtonCloseIssue().waitForClickable({
-            timeoutMsg: 'Button Button Close Issue was not clickable'
+            timeoutMsg: 'Button Close Issue was not clickable'
         })
         await this.getButtonCloseIssue().click()
     }
-
-    // public async clickButtonLabelByFilter(): Promise<void> {
-    //     await this.getButtonLabelByFilter().waitForClickable({
-    //         timeoutMsg: 'Button Label By Filter was not clickable'
-    //     })
-    //     await this.getButtonLabelByFilter().click()
-    // }
 
     public async clickButtonLabels(): Promise<void> {
         await this.getButtonLabels().waitForClickable({
@@ -115,6 +122,10 @@ class IssuesPage {
         return this.getMessageClosedIssue().getText()
     }
 
+    public getMessageDeletedIssueText(): Promise<string> {
+        return this.getMessageDeletedIssue().getText()
+    }
+
     public getMessageLockCommentsText(): Promise<string> {
         return this.getMessageLockComments().getText()
     }
@@ -164,13 +175,17 @@ class IssuesPage {
         return this.browser.$('//p[@dir="auto"]//a')
     }
 
+    private getButtonDeleteIssue(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@class="octicon octicon-trash"]')
+    }
+
+    private getButtonDeleteIssueApply(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@data-disable-with="Deleting issue…"]')
+    }
+
     private getButtonCloseIssue(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@data-default-action-text="Close issue"]')
     }
-
-    // private getButtonLabelByFilter(): ChainablePromiseElement<WebdriverIO.Element> {
-    //     return this.browser.$('//*[@role="menuitemcheckbox"]')
-    // }
 
     private getButtonLabels(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@data-hotkey="l"]')
@@ -222,6 +237,10 @@ class IssuesPage {
 
     private getMessageClosedIssue(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[@title="Status: Closed"]')
+    }
+
+    private getMessageDeletedIssue(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@class="blankslate-heading"]')
     }
 
     private getMessageLockComments(): ChainablePromiseElement<WebdriverIO.Element> {

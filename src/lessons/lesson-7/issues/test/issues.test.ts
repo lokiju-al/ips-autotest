@@ -110,14 +110,14 @@ describe('Issues test', async () => {
     //     await loginPage.clickButtonLogin()
     // })
 
-    it('The user should be able to close the issue', async () => {
-        await issuesPage.clickButtonNewIssue()
-        await issuesPage.fillFieldTitle(issue.title)
-        await issuesPage.clickButtonSubmitNewIssue()
-        await issuesPage.clickButtonCloseIssue()
+    // it('The user should be able to close the issue', async () => {
+    //     await issuesPage.clickButtonNewIssue()
+    //     await issuesPage.fillFieldTitle(issue.title)
+    //     await issuesPage.clickButtonSubmitNewIssue()
+    //     await issuesPage.clickButtonCloseIssue()
 
-        expect(await issuesPage.getMessageClosedIssueText()).toEqual('Closed')
-    })
+    //     expect(await issuesPage.getMessageClosedIssueText()).toEqual('Closed')
+    // })
 
     // it('The user should be able to find an issue by an existing tag', async () => {
     //     await labelsPage.openUrl(user.urlLabelsPage)
@@ -130,7 +130,6 @@ describe('Issues test', async () => {
     //     await issuesPage.clickButtonSubmitNewIssue()
     //     await issuesPage.clickButtonLabels()
     //     await issuesPage.fillFieldFilterLabels(issue.tag)
-    //     await browser.pause(1000)
     //     await browser.keys('Enter')
     //     await issuesPage.clickButtonLabels()
     //     await labelsPage.openUrl(user.urlLabelsPage)
@@ -140,6 +139,18 @@ describe('Issues test', async () => {
 
     //     expect(await labelsPage.getButtonIssueFindByLabelText()).toEqual(issue.tag)
     // })
+
+    it('The user should be able to delete a task', async () => {
+        await issuesPage.clickButtonNewIssue()
+        await issuesPage.fillFieldTitle(issue.title)
+        await issuesPage.clickButtonSubmitNewIssue()
+        issue.url = await browser.getUrl()
+        await issuesPage.clickButtonDeleteIssue()
+        await issuesPage.clickButtonDeleteIssueApply()
+        await browser.url(issue.url)
+
+        expect(await issuesPage.getMessageDeletedIssueText()).toEqual('This issue has been deleted.')
+    })
 
     after(async () => {
         await browser.reloadSession()
