@@ -82,6 +82,7 @@ class IssuesPage {
             timeoutMsg: 'Field Filter Labels was not displayed'
         })
         await this.getFieldFilterLabels().setValue(labelName)
+        await this.browser.pause(1000)
     }
 
     public async fillFieldTitle(title: string): Promise<void> {

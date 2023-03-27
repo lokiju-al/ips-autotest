@@ -110,36 +110,36 @@ describe('Issues test', async () => {
     //     await loginPage.clickButtonLogin()
     // })
 
-    // it('The user should be able to close the issue', async () => {
-    //     await issuesPage.clickButtonNewIssue()
-    //     await issuesPage.fillFieldTitle(issue.title)
-    //     await issuesPage.clickButtonSubmitNewIssue()
-    //     await issuesPage.clickButtonCloseIssue()
-
-    //     expect(await issuesPage.getMessageClosedIssueText()).toEqual('Closed')
-    // })
-
-    it('The user should be able to find an issue by an existing tag', async () => {
-        await labelsPage.openUrl(user.urlLabelsPage)
-        await labelsPage.clickButtonNewLabel()
-        await labelsPage.fillFieldLabelName(issue.tag)
-        await labelsPage.clickButtonCreateLabel()
-        await issuesPage.openUrl(user.urlIssuesPage)
+    it('The user should be able to close the issue', async () => {
         await issuesPage.clickButtonNewIssue()
-        await issuesPage.fillFieldTitle(issue.tag)
+        await issuesPage.fillFieldTitle(issue.title)
         await issuesPage.clickButtonSubmitNewIssue()
-        await issuesPage.clickButtonLabels()
-        await issuesPage.fillFieldFilterLabels(issue.tag)
-        await browser.pause(1000)
-        await browser.keys('Enter')
-        await issuesPage.clickButtonLabels()
-        await labelsPage.openUrl(user.urlLabelsPage)
-        await labelsPage.fillFieldSearchAllLabels(issue.tag)
-        await browser.keys('Enter')
-        await labelsPage.clickButtonLabelByFilter()
+        await issuesPage.clickButtonCloseIssue()
 
-        expect(await labelsPage.getButtonIssueFindByLabelText()).toEqual(issue.tag)
+        expect(await issuesPage.getMessageClosedIssueText()).toEqual('Closed')
     })
+
+    // it('The user should be able to find an issue by an existing tag', async () => {
+    //     await labelsPage.openUrl(user.urlLabelsPage)
+    //     await labelsPage.clickButtonNewLabel()
+    //     await labelsPage.fillFieldLabelName(issue.tag)
+    //     await labelsPage.clickButtonCreateLabel()
+    //     await issuesPage.openUrl(user.urlIssuesPage)
+    //     await issuesPage.clickButtonNewIssue()
+    //     await issuesPage.fillFieldTitle(issue.tag)
+    //     await issuesPage.clickButtonSubmitNewIssue()
+    //     await issuesPage.clickButtonLabels()
+    //     await issuesPage.fillFieldFilterLabels(issue.tag)
+    //     await browser.pause(1000)
+    //     await browser.keys('Enter')
+    //     await issuesPage.clickButtonLabels()
+    //     await labelsPage.openUrl(user.urlLabelsPage)
+    //     await labelsPage.fillFieldSearchAllLabels(issue.tag)
+    //     await browser.keys('Enter')
+    //     await labelsPage.clickButtonLabelByFilter()
+
+    //     expect(await labelsPage.getButtonIssueFindByLabelText()).toEqual(issue.tag)
+    // })
 
     after(async () => {
         await browser.reloadSession()
