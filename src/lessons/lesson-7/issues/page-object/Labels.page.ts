@@ -46,12 +46,20 @@ class LabelsPage {
         return this.getButtonIssueFindByLabel().getText()
     }
 
+    public getMessageNoMatchingLabelsText(): Promise<string> {
+        return this.getMessageNoMatchingLabels().getText()
+    }
+
     public async openUrl(url: string): Promise<void> {
         await this.browser.url(url)
     }
 
     private getButtonCreateLabel(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//*[contains(text(), "Create label")]')
+    }
+
+    private getButtonIssueFindByLabel(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@data-hovercard-type="issue"]')
     }
 
     private getButtonLabelByFilter(): ChainablePromiseElement<WebdriverIO.Element> {
@@ -70,8 +78,8 @@ class LabelsPage {
         return this.browser.$('//*[@id="js-issues-search"]')
     }
 
-    private getButtonIssueFindByLabel(): ChainablePromiseElement<WebdriverIO.Element> {
-        return this.browser.$('//*[@data-hovercard-type="issue"]')
+    private getMessageNoMatchingLabels(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@class="blankslate-heading"]')
     }
 }
 
