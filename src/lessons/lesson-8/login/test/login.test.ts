@@ -18,7 +18,7 @@ describe('Login form test', async () => {
         await loginPage.openUrl()
     })
 
-    it('User should be log in with LOGIN', async () => {
+    it('User should be log in with LOGIN/PASSWORD', async () => {
         await loginPage.fillFieldLogin(user.login)
         await loginPage.fillFieldPassword(user.password)
         await loginPage.clickButtonLogin()
@@ -27,7 +27,7 @@ describe('Login form test', async () => {
         expect(await mainPage.getUserLoginText()).toEqual(user.login)
     })
 
-    it('User should be log in with EMAIL', async () => {
+    it('User should be log in with EMAIL/PASSWORD', async () => {
         await loginPage.fillFieldLogin(user.email)
         await loginPage.fillFieldPassword(user.password)
         await loginPage.clickButtonLogin()
