@@ -30,11 +30,11 @@ describe('Public profile test', async () => {
     })
 
     it('User should be able to change Name', async () => {
-        await profilePage.fillFieldName(user.name)
+        await profilePage.fillFieldName(user.name!)
         await profilePage.saveChanges()
         await overviewPage.openUrl()
 
-        expect(await overviewPage.getNameText()).toEqual(user.name)
+        expect(await overviewPage.getNameText()).toEqual(user.name!)
     })
 
     it('User should be able to change Bio', async () => {
@@ -42,7 +42,7 @@ describe('Public profile test', async () => {
         await profilePage.saveChanges()
         await overviewPage.openUrl()
 
-        expect(await overviewPage.getBioText()).toEqual(user.bio)
+        expect(await overviewPage.getBioText()).toEqual(user.bio!)
     })
 
     it('User should be able to set Email visible', async () => {
@@ -57,11 +57,11 @@ describe('Public profile test', async () => {
     })
 
     it('User should be able to change Pronouns', async () => {
-        await profilePage.selectPronounsCombobox(user.pronouns)
+        await profilePage.selectPronounsCombobox(user.pronouns!)
         await profilePage.saveChanges()
         await overviewPage.openUrl()
 
-        expect(await overviewPage.getPronounsText()).toEqual(user.pronouns)
+        expect(await overviewPage.getPronounsText()).toEqual(user.pronouns!)
     })
 
     it('Avatar with proper type should be uploaded in profile', async () => {
