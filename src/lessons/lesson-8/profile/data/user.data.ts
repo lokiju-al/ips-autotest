@@ -18,6 +18,10 @@ function getStringTimestamp(): number {
     return date.getTime()
 }
 
+function getRandomNumber(): number {
+    return Math.floor(Math.random() * 7)
+}
+
 function getRandomString(length: number): string {
     var randomString: string = ''
     var charSet: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -35,8 +39,8 @@ const userData: UserData = {
     urlOverviewPage: URL_OVERVIEW_PAGE,
     avatarFilePath: 'src/files/jpg_120x120_avatar_test.jpg',
     pronouns: 'he/him',
-    bio: `${mask}-bio-${getStringTimestamp()}-${getRandomString(6)}`,
-    name: `${mask}-name-${getStringTimestamp()}-${getRandomString(6)}`
+    bio: `${mask}-bio-${getStringTimestamp()}-${getRandomString(getRandomNumber())}`,
+    name: `${mask}-name-${getStringTimestamp()}-${getRandomString(getRandomNumber())}`
 }
 
 export {
