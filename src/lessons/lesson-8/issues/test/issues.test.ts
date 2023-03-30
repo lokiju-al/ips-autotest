@@ -140,7 +140,7 @@ describe('Issues test', async () => {
         expect(await labelsPage.getButtonIssueFindByLabelText()).toEqual(issue.tag)
     })
 
-    it('The user should not be able to find a task by a non-existent tag', async () => {
+    it('The user should not be able to find a non-existent tag', async () => {
         await labelsPage.openUrl(user.urlLabelsPage)
         await labelsPage.fillFieldSearchAllLabels('Этот тег не существует')
         await browser.keys('Enter')
