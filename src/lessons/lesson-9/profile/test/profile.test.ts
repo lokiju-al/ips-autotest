@@ -42,15 +42,20 @@ describe('Public profile test', async () => {
         expect(await overviewPage.getBioText()).toEqual(user.bio!)
     })
 
-    it('User should be able to set Email visible', async () => {
-        await emailsPage.openUrl()
-        await emailsPage.uncheckPrivacy()
-        await profilePage.openUrl()
-        await profilePage.fillEmailComboBox(user.email)
-        await profilePage.saveChanges()
-        await overviewPage.openUrl(userData.urlOverviewPage)
+    describe('Email settings test', async () => {
+        before(async () => {
+            await emailsPage.openUrl()
+            await emailsPage.uncheckPrivacy()
+        })
 
-        expect(await overviewPage.getEmailText()).toEqual(user.email)
+        it('User should be able to set Email visible', async () => {
+            await profilePage.openUrl()
+            await profilePage.fillEmailComboBox(user.email)
+            await profilePage.saveChanges()
+            await overviewPage.openUrl(userData.urlOverviewPage)
+
+            expect(await overviewPage.getEmailText()).toEqual(user.email)
+        })
     })
 
     it('User should be able to change Pronouns', async () => {
