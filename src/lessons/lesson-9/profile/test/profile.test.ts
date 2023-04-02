@@ -2,8 +2,8 @@ import { EmailsPage } from '../page-object/Emails.page'
 import { LoginPage } from '../page-object/Login.page'
 import { OverviewPage } from '../page-object/Overview.page'
 import { ProfilePage } from '../page-object/Profile.page'
-import { userData } from '../data/user.data'
-import { UserModel, createUserModel } from '../model/user.model'
+import { userData } from '../../login/data/user.data'
+import { UserModel, createUserModel } from '../../login/model/user.model'
 
 describe('Public profile test', async () => {
     let emailsPage: EmailsPage
@@ -32,7 +32,7 @@ describe('Public profile test', async () => {
     it('User should be able to change Name', async () => {
         await profilePage.fillFieldName(user.name!)
         await profilePage.saveChanges()
-        await overviewPage.openUrl()
+        await overviewPage.openUrl(userData.urlOverviewPage)
 
         expect(await overviewPage.getNameText()).toEqual(user.name!)
     })
@@ -40,7 +40,7 @@ describe('Public profile test', async () => {
     it('User should be able to change Bio', async () => {
         await profilePage.fillFieldBio(user.bio)
         await profilePage.saveChanges()
-        await overviewPage.openUrl()
+        await overviewPage.openUrl(userData.urlOverviewPage)
 
         expect(await overviewPage.getBioText()).toEqual(user.bio!)
     })
@@ -51,7 +51,7 @@ describe('Public profile test', async () => {
         await profilePage.openUrl()
         await profilePage.fillEmailComboBox(user.email)
         await profilePage.saveChanges()
-        await overviewPage.openUrl()
+        await overviewPage.openUrl(userData.urlOverviewPage)
 
         expect(await overviewPage.getEmailText()).toEqual(user.email)
     })
@@ -59,7 +59,7 @@ describe('Public profile test', async () => {
     it('User should be able to change Pronouns', async () => {
         await profilePage.selectPronounsCombobox(user.pronouns!)
         await profilePage.saveChanges()
-        await overviewPage.openUrl()
+        await overviewPage.openUrl(userData.urlOverviewPage)
 
         expect(await overviewPage.getPronounsText()).toEqual(user.pronouns!)
     })

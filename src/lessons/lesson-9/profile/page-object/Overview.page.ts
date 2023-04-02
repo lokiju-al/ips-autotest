@@ -1,5 +1,4 @@
 import { ChainablePromiseElement } from 'webdriverio'
-import { userData } from '../data/user.data'
 
 class OverviewPage {
     protected browser: WebdriverIO.Browser
@@ -24,8 +23,8 @@ class OverviewPage {
         return this.getPronouns().getText()
     }
 
-    public async openUrl(): Promise<void> {
-        await this.browser.url(userData.urlOverviewPage)
+    public async openUrl(url: string): Promise<void> {
+        await this.browser.url(url)
     }
 
     private getBio(): ChainablePromiseElement<WebdriverIO.Element> {

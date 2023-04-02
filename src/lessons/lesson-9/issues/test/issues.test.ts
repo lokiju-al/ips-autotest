@@ -2,8 +2,8 @@ import { COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD } from '../../../../../credenti
 import { LoginPage } from '../page-object/Login.page'
 import { IssuesPage } from '../page-object/Issues.page'
 import { LabelsPage } from '../page-object/Labels.page'
-import { userData } from '../data/user.data'
-import { UserModel, createUserModel } from '../model/user.model'
+import { userData } from '../../login/data/user.data'
+import { UserModel, createUserModel } from '../../login/model/user.model'
 import { issueData } from '../data/issue.data'
 import { IssueModel, createIssueModel } from '../model/issue.model'
 
