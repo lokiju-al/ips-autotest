@@ -1,5 +1,5 @@
 import { EmailsPage } from '../page-object/Emails.page'
-import { LoginPage } from '../page-object/Login.page'
+import { LoginPage } from '../../login/page-object/Login.page'
 import { OverviewPage } from '../page-object/Overview.page'
 import { ProfilePage } from '../page-object/Profile.page'
 import { userData } from '../../login/data/user.data'
@@ -19,10 +19,7 @@ describe('Public profile test', async () => {
         loginPage = new LoginPage(browser)
         overviewPage = new OverviewPage(browser)
         profilePage = new ProfilePage(browser)
-        await loginPage.openUrl()
-        await loginPage.fillFieldLogin(user.login)
-        await loginPage.fillFieldPassword(user.password)
-        await loginPage.clickButtonLogin()
+        await loginPage.openLoginPageUrlAndLogin(user.login, user.password)
     })
 
     beforeEach(async () => {

@@ -1,5 +1,5 @@
 import { COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD } from '../../../../../credential'
-import { LoginPage } from '../page-object/Login.page'
+import { LoginPage } from '../../login/page-object/Login.page'
 import { IssuesPage } from '../page-object/Issues.page'
 import { LabelsPage } from '../page-object/Labels.page'
 import { userData } from '../../login/data/user.data'
@@ -20,10 +20,7 @@ describe('Issues test', async () => {
         loginPage = new LoginPage(browser)
         issuesPage = new IssuesPage(browser)
         labelsPage = new LabelsPage(browser)
-        await loginPage.openUrl()
-        await loginPage.fillFieldLogin(user.login)
-        await loginPage.fillFieldPassword(user.password)
-        await loginPage.clickButtonLogin()
+        await loginPage.openLoginPageUrlAndLogin(user.login, user.password)
     })
 
     beforeEach(async () => {
@@ -67,23 +64,15 @@ describe('Issues test', async () => {
         await issuesPage.fillFieldTitle(issue.title)
         await issuesPage.clickButtonSubmitNewIssue()
         issue.url = await browser.getUrl()
-        await issuesPage.openUserMenu()
-        await issuesPage.clickButtonSignOut()
-        await loginPage.openUrl()
-        await loginPage.fillFieldLogin(COMMENTATOR_LOGIN)
-        await loginPage.fillFieldPassword(COMMENTATOR_PASSWORD)
-        await loginPage.clickButtonLogin()
+        await issuesPage.openUserMenuAndSignOut()
+        await loginPage.openLoginPageUrlAndLogin(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
         await browser.url(issue.url)
         await issuesPage.fillFieldComment(issue.commentText)
         await issuesPage.clickButtonSaveComment()
 
         expect(await issuesPage.getSavedCommentText()).toEqual(issue.commentText)
-        await issuesPage.openUserMenu()
-        await issuesPage.clickButtonSignOut()
-        await loginPage.openUrl()
-        await loginPage.fillFieldLogin(user.login)
-        await loginPage.fillFieldPassword(user.password)
-        await loginPage.clickButtonLogin()
+        await issuesPage.openUserMenuAndSignOut()
+        await loginPage.openLoginPageUrlAndLogin(user.login, user.password)
     })
 
     it('The user should be able to block comments', async () => {
@@ -93,21 +82,13 @@ describe('Issues test', async () => {
         await issuesPage.clickButtonLockComments()
         await issuesPage.clickButtonLockCommentsApply()
         issue.url = await browser.getUrl()
-        await issuesPage.openUserMenu()
-        await issuesPage.clickButtonSignOut()
-        await loginPage.openUrl()
-        await loginPage.fillFieldLogin(COMMENTATOR_LOGIN)
-        await loginPage.fillFieldPassword(COMMENTATOR_PASSWORD)
-        await loginPage.clickButtonLogin()
+        await issuesPage.openUserMenuAndSignOut()
+        await loginPage.openLoginPageUrlAndLogin(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
         await browser.url(issue.url)
 
         expect(await issuesPage.getMessageLockCommentsText()).toEqual('This conversation has been locked and limited to collaborators.')
-        await issuesPage.openUserMenu()
-        await issuesPage.clickButtonSignOut()
-        await loginPage.openUrl()
-        await loginPage.fillFieldLogin(user.login)
-        await loginPage.fillFieldPassword(user.password)
-        await loginPage.clickButtonLogin()
+        await issuesPage.openUserMenuAndSignOut()
+        await loginPage.openLoginPageUrlAndLogin(user.login, user.password)
     })
 
     it('The user should be able to close the issue', async () => {

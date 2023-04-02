@@ -33,6 +33,16 @@ class LoginPage {
         return this.getAlert().getText()
     }
 
+    public async openLoginPageUrlAndLogin(userLogin: string, userPassword: string): Promise<void> {
+        await this.browser.url(this.url)
+        await this.getFieldLogin().waitForDisplayed({
+            timeoutMsg: 'Login field was not displayed'
+        })
+        await this.getFieldLogin().setValue(userLogin)
+        await this.getFieldPassword().setValue(userPassword)
+        await this.getButtonLogin().click()
+    }
+
     public async openUrl(): Promise<void> {
         await this.browser.url(this.url)
     }

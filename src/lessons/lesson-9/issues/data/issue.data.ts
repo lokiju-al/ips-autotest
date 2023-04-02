@@ -31,8 +31,6 @@ const issueData: IssueData = {
     tag: `${mask}-${getStringTimestamp()}-${getRandomString(6)}`
 }
 
-
-
 export {
     IssueData,
     issueData,

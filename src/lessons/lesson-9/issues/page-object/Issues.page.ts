@@ -63,13 +63,6 @@ class IssuesPage {
         await this.getButtonSaveComment().click()
     }
 
-    public async clickButtonSignOut(): Promise<void> {
-        await this.getButtonSignOut().waitForClickable({
-            timeoutMsg: 'Button Sign Out was not clickable'
-        })
-        await this.getButtonSignOut().click()
-    }
-
     public async clickButtonSubmitNewIssue(): Promise<void> {
         await this.getButtonSubmitNewIssue().waitForClickable({
             timeoutMsg: 'Button Submit New Issue was not clickable'
@@ -138,11 +131,15 @@ class IssuesPage {
         return this.browser.$('//summary//*[contains(@class, "avatar")]')
     }
 
-    public async openUserMenu(): Promise<void> {
+    public async openUserMenuAndSignOut(): Promise<void> {
         await this.getUserAvatar().waitForClickable({
             timeoutMsg: 'User avatar was not clickable'
         })
         await this.getUserAvatar().click()
+        await this.getButtonSignOut().waitForClickable({
+            timeoutMsg: 'Button Sign Out was not clickable'
+        })
+        await this.getButtonSignOut().click()
     }
 
     public async openUrl(url: string): Promise<void> {
