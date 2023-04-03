@@ -40,7 +40,7 @@ class ProfilePage {
         await this.browser.url(this.url)
     }
 
-    public saveAvatarImagePath(): Promise<string> {
+    public getAvatarImagePath(): Promise<string> {
         this.getAvatarImage().waitForDisplayed({
             timeoutMsg: 'Avatar was not displayed'
         })

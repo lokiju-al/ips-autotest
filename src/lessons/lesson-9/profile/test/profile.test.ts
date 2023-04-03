@@ -19,6 +19,7 @@ describe('Public profile test', async () => {
         loginPage = new LoginPage(browser)
         overviewPage = new OverviewPage(browser)
         profilePage = new ProfilePage(browser)
+        await loginPage.openUrl()
         await loginPage.openLoginPageUrlAndLogin(user.login, user.password)
     })
 
@@ -29,7 +30,7 @@ describe('Public profile test', async () => {
     it('User should be able to change Name', async () => {
         await profilePage.fillFieldName(user.name!)
         await profilePage.saveChanges()
-        await overviewPage.openUrl(userData.urlOverviewPage)
+        await overviewPage.openUrl(user.urlOverviewPage)
 
         expect(await overviewPage.getNameText()).toEqual(user.name!)
     })
@@ -68,11 +69,11 @@ describe('Public profile test', async () => {
 
     it('Avatar with proper type should be uploaded in profile', async () => {
         await profilePage.uploadAvatarFile(firstAvatarFilePath)
-        const firstAvatarImagePath: string = await profilePage.saveAvatarImagePath()
+        const firstAvatarImagePath: string = await profilePage.getAvatarImagePath()
         await profilePage.uploadAvatarFile(user.avatarFilePath)
-        const newAvatarImagePathesIsEqual: Boolean = firstAvatarImagePath === await profilePage.saveAvatarImagePath()
+        const otherAvatarImagePath: string = await profilePage.getAvatarImagePath()
 
-        expect(newAvatarImagePathesIsEqual).toEqual(false)
+        expect(firstAvatarImagePath === otherAvatarImagePath).toEqual(false)
     })
 
     it('Avatar with wrong type should not be uploaded in profile', async () => {

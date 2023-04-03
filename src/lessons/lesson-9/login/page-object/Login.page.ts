@@ -32,7 +32,7 @@ class LoginPage {
     public getAlertText(): Promise<string> {
         return this.getAlert().getText()
     }
-
+    //переименовать в login()
     public async openLoginPageUrlAndLogin(userLogin: string, userPassword: string): Promise<void> {
         await this.browser.url(this.url)
         await this.getFieldLogin().waitForDisplayed({

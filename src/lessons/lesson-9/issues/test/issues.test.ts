@@ -75,7 +75,7 @@ describe('Issues test', async () => {
         await loginPage.openLoginPageUrlAndLogin(user.login, user.password)
     })
 
-    it('The user should be able to block comments', async () => {
+    it('The user should be able to block comments', async () => {//иты вынести в отдельный дескрайб
         await issuesPage.clickButtonNewIssue()
         await issuesPage.fillFieldTitle(issue.title)
         await issuesPage.clickButtonSubmitNewIssue()
@@ -85,7 +85,7 @@ describe('Issues test', async () => {
         await issuesPage.openUserMenuAndSignOut()
         await loginPage.openLoginPageUrlAndLogin(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
         await browser.url(issue.url)
-
+        //убрать зависимость от текста
         expect(await issuesPage.getMessageLockCommentsText()).toEqual('This conversation has been locked and limited to collaborators.')
         await issuesPage.openUserMenuAndSignOut()
         await loginPage.openLoginPageUrlAndLogin(user.login, user.password)
@@ -111,7 +111,7 @@ describe('Issues test', async () => {
         await issuesPage.clickButtonSubmitNewIssue()
         await issuesPage.clickButtonLabels()
         await issuesPage.fillFieldFilterLabels(issue.tag)
-        await browser.keys('Enter')
+        await browser.keys('Enter') //вынести в PO
         await issuesPage.clickButtonLabels()
         await labelsPage.openUrl(user.urlLabelsPage)
         await labelsPage.fillFieldSearchAllLabels(issue.tag)
@@ -133,15 +133,11 @@ describe('Issues test', async () => {
         await issuesPage.clickButtonNewIssue()
         await issuesPage.fillFieldTitle(issue.title)
         await issuesPage.clickButtonSubmitNewIssue()
-        issue.url = await browser.getUrl()
+        issue.url = await browser.getUrl()//  с урлами вынести в перменные это не относится к модели
         await issuesPage.clickButtonDeleteIssue()
         await issuesPage.clickButtonDeleteIssueApply()
         await browser.url(issue.url)
 
         expect(await issuesPage.getMessageDeletedIssueText()).toEqual('This issue has been deleted.')
-    })
-
-    after(async () => {
-        await browser.reloadSession()
     })
 })

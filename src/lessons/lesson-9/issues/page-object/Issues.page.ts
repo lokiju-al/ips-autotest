@@ -49,7 +49,7 @@ class IssuesPage {
         await this.getButtonLockCommentsApply().click()
     }
 
-    public async clickButtonNewIssue(): Promise<void> {
+    public async clickButtonNewIssue(): Promise<void> {//переименовать
         await this.getButtonNewIssue().waitForClickable({
             timeoutMsg: 'Button New Issue was not clickable'
         })

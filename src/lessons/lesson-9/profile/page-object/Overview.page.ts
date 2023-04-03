@@ -2,7 +2,8 @@ import { ChainablePromiseElement } from 'webdriverio'
 
 class OverviewPage {
     protected browser: WebdriverIO.Browser
-
+    protected url = ''
+    
     constructor(browser: WebdriverIO.Browser) {
         this.browser = browser
     }
