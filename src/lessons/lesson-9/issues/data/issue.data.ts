@@ -4,6 +4,7 @@ type IssueData = {
     commentText: string,
     url: string,
     tag: string,
+    state: string,
 }
 
 const mask: string = 'issues'
@@ -28,7 +29,8 @@ const issueData: IssueData = {
     commentFilePath: 'src/files/jpg_120x120_avatar_test.jpg',
     commentText: `${mask}-comment-${getStringTimestamp()}-${getRandomString(6)}`,
     url: '',
-    tag: `${mask}-${getStringTimestamp()}-${getRandomString(6)}`
+    tag: `${mask}-${getStringTimestamp()}-${getRandomString(6)}`,
+    state: 'open'
 }
 
 export {
