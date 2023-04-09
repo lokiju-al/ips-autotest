@@ -1,7 +1,9 @@
 import { ChainablePromiseElement } from 'webdriverio'
+import { LOGIN, REPO } from '../../../../../credential'
 
 class LabelsPage {
     protected browser: WebdriverIO.Browser
+    protected url = `https://github.com/${LOGIN}/${REPO}/labels`
 
     constructor(browser: WebdriverIO.Browser) {
         this.browser = browser
@@ -50,8 +52,8 @@ class LabelsPage {
         return this.getMessageNoMatchingLabels().getText()
     }
 
-    public async openUrl(url: string): Promise<void> {
-        await this.browser.url(url)
+    public async open(): Promise<void> {
+        await this.browser.url(this.url)
     }
 
     private getButtonCreateLabel(): ChainablePromiseElement<WebdriverIO.Element> {

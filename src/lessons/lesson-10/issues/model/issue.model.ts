@@ -4,7 +4,6 @@ type IssueModel = {
     title: string,
     commentFilePath: string,
     commentText: string,
-    url: string,
     tag: string,
     state: string,
 }
@@ -14,7 +13,6 @@ function createIssueModel(data: IssueData): IssueModel {
         title: data.title,
         commentFilePath: data.commentFilePath,
         commentText: data.commentText,
-        url: data.url,
         tag: data.tag,
         state: data.state
     }

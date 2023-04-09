@@ -20,11 +20,12 @@ describe('Issues test', async () => {
         loginPage = new LoginPage(browser)
         issuesPage = new IssuesPage(browser)
         labelsPage = new LabelsPage(browser)
-        await loginPage.openLoginPageUrlAndLogin(user.login, user.password)
+        await loginPage.open()
+        await loginPage.login(user.login, user.password)
     })
 
     beforeEach(async () => {
-        await issuesPage.openUrl(user.urlIssuesPage)
+        await issuesPage.open()
     })
 
     it('The user should be able to successfully create tasks with a valid number of characters in the title', async () => {
@@ -63,16 +64,18 @@ describe('Issues test', async () => {
         await issuesPage.clickButtonNewIssue()
         await issuesPage.fillFieldTitle(issue.title)
         await issuesPage.clickButtonSubmitNewIssue()
-        issue.url = await browser.getUrl()
-        await issuesPage.openUserMenuAndSignOut()
-        await loginPage.openLoginPageUrlAndLogin(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
-        await browser.url(issue.url)
+        const issueUrl = await browser.getUrl()
+        await issuesPage.signOut()
+        await loginPage.open()
+        await loginPage.login(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
+        await browser.url(issueUrl)
         await issuesPage.fillFieldComment(issue.commentText)
         await issuesPage.clickButtonSaveComment()
 
         expect(await issuesPage.getSavedCommentText()).toEqual(issue.commentText)
-        await issuesPage.openUserMenuAndSignOut()
-        await loginPage.openLoginPageUrlAndLogin(user.login, user.password)
+        await issuesPage.signOut()
+        await loginPage.open()
+        await loginPage.login(user.login, user.password)
     })
 
     it('The user should be able to block comments', async () => {//иты вынести в отдельный дескрайб
@@ -81,14 +84,16 @@ describe('Issues test', async () => {
         await issuesPage.clickButtonSubmitNewIssue()
         await issuesPage.clickButtonLockComments()
         await issuesPage.clickButtonLockCommentsApply()
-        issue.url = await browser.getUrl()
-        await issuesPage.openUserMenuAndSignOut()
-        await loginPage.openLoginPageUrlAndLogin(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
-        await browser.url(issue.url)
+        const issueUrl = await browser.getUrl()
+        await issuesPage.signOut()
+        await loginPage.open()
+        await loginPage.login(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
+        await browser.url(issueUrl)
         //убрать зависимость от текста
         expect(await issuesPage.getMessageLockCommentsText()).toEqual('This conversation has been locked and limited to collaborators.')
-        await issuesPage.openUserMenuAndSignOut()
-        await loginPage.openLoginPageUrlAndLogin(user.login, user.password)
+        await issuesPage.signOut()
+        await loginPage.open()
+        await loginPage.login(user.login, user.password)
     })
 
     it('The user should be able to close the issue', async () => {
@@ -101,11 +106,11 @@ describe('Issues test', async () => {
     })
 
     it('The user should be able to find an issue by an existing tag', async () => {
-        await labelsPage.openUrl(user.urlLabelsPage)
+        await labelsPage.open()
         await labelsPage.clickButtonNewLabel()
         await labelsPage.fillFieldLabelName(issue.tag)
         await labelsPage.clickButtonCreateLabel()
-        await issuesPage.openUrl(user.urlIssuesPage)
+        await issuesPage.open()
         await issuesPage.clickButtonNewIssue()
         await issuesPage.fillFieldTitle(issue.tag)
         await issuesPage.clickButtonSubmitNewIssue()
@@ -113,7 +118,7 @@ describe('Issues test', async () => {
         await issuesPage.fillFieldFilterLabels(issue.tag)
         await browser.keys('Enter') //вынести в PO
         await issuesPage.clickButtonLabels()
-        await labelsPage.openUrl(user.urlLabelsPage)
+        await labelsPage.open()
         await labelsPage.fillFieldSearchAllLabels(issue.tag)
         await browser.keys('Enter')
         await labelsPage.clickButtonLabelByFilter()
@@ -122,7 +127,7 @@ describe('Issues test', async () => {
     })
 
     it('The user should not be able to find a non-existent tag', async () => {
-        await labelsPage.openUrl(user.urlLabelsPage)
+        await labelsPage.open()
         await labelsPage.fillFieldSearchAllLabels('Этот тег не существует')
         await browser.keys('Enter')
 
@@ -133,10 +138,10 @@ describe('Issues test', async () => {
         await issuesPage.clickButtonNewIssue()
         await issuesPage.fillFieldTitle(issue.title)
         await issuesPage.clickButtonSubmitNewIssue()
-        issue.url = await browser.getUrl()//  с урлами вынести в перменные это не относится к модели
+        const issueUrl = await browser.getUrl()//  с урлами вынести в перменные это не относится к модели
         await issuesPage.clickButtonDeleteIssue()
         await issuesPage.clickButtonDeleteIssueApply()
-        await browser.url(issue.url)
+        await browser.url(issueUrl)
 
         expect(await issuesPage.getMessageDeletedIssueText()).toEqual('This issue has been deleted.')
     })

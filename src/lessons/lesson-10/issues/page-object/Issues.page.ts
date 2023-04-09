@@ -1,7 +1,9 @@
 import { ChainablePromiseElement } from 'webdriverio'
+import { LOGIN, REPO } from '../../../../../credential'
 
 class IssuesPage {
     protected browser: WebdriverIO.Browser
+    protected url = `https://github.com/${LOGIN}/${REPO}/issues`
 
     constructor(browser: WebdriverIO.Browser) {
         this.browser = browser
@@ -131,7 +133,7 @@ class IssuesPage {
         return this.browser.$('//summary//*[contains(@class, "avatar")]')
     }
 
-    public async openUserMenuAndSignOut(): Promise<void> {
+    public async signOut(): Promise<void> {
         await this.getUserAvatar().waitForClickable({
             timeoutMsg: 'User avatar was not clickable'
         })
@@ -142,8 +144,8 @@ class IssuesPage {
         await this.getButtonSignOut().click()
     }
 
-    public async openUrl(url: string): Promise<void> {
-        await this.browser.url(url)
+    public async open(): Promise<void> {
+        await this.browser.url(this.url)
     }
 
     public async uploadCommentFile(filePath: string): Promise<void> {

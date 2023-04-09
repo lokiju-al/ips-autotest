@@ -36,7 +36,7 @@ class ProfilePage {
         return await this.getAlertBadFile().getText()
     }
 
-    public async openUrl(): Promise<void> {
+    public async open(): Promise<void> {
         await this.browser.url(this.url)
     }
 

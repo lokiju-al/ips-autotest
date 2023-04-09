@@ -33,8 +33,7 @@ class LoginPage {
         return this.getAlert().getText()
     }
     //переименовать в login()
-    public async openLoginPageUrlAndLogin(userLogin: string, userPassword: string): Promise<void> {
-        await this.browser.url(this.url)
+    public async login(userLogin: string, userPassword: string): Promise<void> {
         await this.getFieldLogin().waitForDisplayed({
             timeoutMsg: 'Login field was not displayed'
         })
@@ -43,7 +42,7 @@ class LoginPage {
         await this.getButtonLogin().click()
     }
 
-    public async openUrl(): Promise<void> {
+    public async open(): Promise<void> {
         await this.browser.url(this.url)
     }
 

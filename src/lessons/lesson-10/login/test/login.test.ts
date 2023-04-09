@@ -15,7 +15,7 @@ describe('Login form test', async () => {
     })
 
     beforeEach(async () => {
-        await loginPage.openUrl()
+        await loginPage.open()
     })
 
     it('User should be log in with LOGIN/PASSWORD', async () => {

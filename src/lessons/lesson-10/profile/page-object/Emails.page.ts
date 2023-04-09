@@ -12,7 +12,7 @@ class EmailsPage {
         if (await this.getPrivateToggle().isSelected()) await this.getPrivateToggle().click()
     }
 
-    public async openUrl(): Promise<void> {
+    public async open(): Promise<void> {
         await this.browser.url(this.url)
     }
 

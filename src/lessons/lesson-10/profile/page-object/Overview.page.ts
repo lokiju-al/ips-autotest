@@ -1,8 +1,9 @@
 import { ChainablePromiseElement } from 'webdriverio'
+import { LOGIN } from '../../../../../credential'
 
 class OverviewPage {
     protected browser: WebdriverIO.Browser
-    protected url = ''
+    protected url = `https://github.com/${LOGIN}`
     
     constructor(browser: WebdriverIO.Browser) {
         this.browser = browser
@@ -24,8 +25,8 @@ class OverviewPage {
         return this.getPronouns().getText()
     }
 
-    public async openUrl(url: string): Promise<void> {
-        await this.browser.url(url)
+    public async open(): Promise<void> {
+        await this.browser.url(this.url)
     }
 
     private getBio(): ChainablePromiseElement<WebdriverIO.Element> {

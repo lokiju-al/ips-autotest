@@ -19,18 +19,18 @@ describe('Public profile test', async () => {
         loginPage = new LoginPage(browser)
         overviewPage = new OverviewPage(browser)
         profilePage = new ProfilePage(browser)
-        await loginPage.openUrl()
-        await loginPage.openLoginPageUrlAndLogin(user.login, user.password)
+        await loginPage.open()
+        await loginPage.login(user.login, user.password)
     })
 
     beforeEach(async () => {
-        await profilePage.openUrl()
+        await profilePage.open()
     })
 
     it('User should be able to change Name', async () => {
         await profilePage.fillFieldName(user.name!)
         await profilePage.saveChanges()
-        await overviewPage.openUrl(user.urlOverviewPage)
+        await overviewPage.open()
 
         expect(await overviewPage.getNameText()).toEqual(user.name!)
     })
@@ -38,22 +38,22 @@ describe('Public profile test', async () => {
     it('User should be able to change Bio', async () => {
         await profilePage.fillFieldBio(user.bio)
         await profilePage.saveChanges()
-        await overviewPage.openUrl(userData.urlOverviewPage)
+        await overviewPage.open()
 
         expect(await overviewPage.getBioText()).toEqual(user.bio!)
     })
 
     describe('Email settings test', async () => {
         before(async () => {
-            await emailsPage.openUrl()
+            await emailsPage.open()
             await emailsPage.uncheckPrivacy()
         })
 
         it('User should be able to set Email visible', async () => {
-            await profilePage.openUrl()
+            await profilePage.open()
             await profilePage.fillEmailComboBox(user.email)
             await profilePage.saveChanges()
-            await overviewPage.openUrl(userData.urlOverviewPage)
+            await overviewPage.open()
 
             expect(await overviewPage.getEmailText()).toEqual(user.email)
         })
@@ -62,7 +62,7 @@ describe('Public profile test', async () => {
     it('User should be able to change Pronouns', async () => {
         await profilePage.selectPronounsCombobox(user.pronouns!)
         await profilePage.saveChanges()
-        await overviewPage.openUrl(userData.urlOverviewPage)
+        await overviewPage.open()
 
         expect(await overviewPage.getPronounsText()).toEqual(user.pronouns!)
     })
