@@ -2,14 +2,16 @@ import { EmailsPage } from '../page-object/Emails.page'
 import { LoginPage } from '../../login/page-object/Login.page'
 import { OverviewPage } from '../page-object/Overview.page'
 import { ProfilePage } from '../page-object/Profile.page'
-import { userData } from '../../login/data/user.data'
+import { emptyData, userData } from '../../login/data/user.data'
 import { UserModel, createUserModel } from '../../login/model/user.model'
+import { UserAPIService } from '../../api/api-service/UserAPIService'
 
 describe('Public profile test', async () => {
     let emailsPage: EmailsPage
     let loginPage: LoginPage
     let overviewPage: OverviewPage
     let profilePage: ProfilePage
+    const emptyModel: UserModel = createUserModel(emptyData)
     const user: UserModel = createUserModel(userData)
     const firstAvatarFilePath: string = 'src/files/first_avatar.jpg'
     const wrongAvatarFilePath: string = 'src/files/bmp_120x120_avatar_test.bmp'
@@ -17,6 +19,7 @@ describe('Public profile test', async () => {
     before(async () => {
         emailsPage = new EmailsPage(browser)
         loginPage = new LoginPage(browser)
+        await UserAPIService.updateAuthenticatedUser(emptyModel)
         overviewPage = new OverviewPage(browser)
         profilePage = new ProfilePage(browser)
         await loginPage.open()
@@ -83,6 +86,7 @@ describe('Public profile test', async () => {
     })
 
     after(async () => {
+        await UserAPIService.updateAuthenticatedUser(emptyModel)
         await browser.reloadSession()
     })
 })

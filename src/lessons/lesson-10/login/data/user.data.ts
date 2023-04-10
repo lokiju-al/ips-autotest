@@ -1,12 +1,9 @@
-import { LOGIN, EMAIL, PASSWORD, URL_OVERVIEW_PAGE, URL_ISSUES_PAGE, URL_LABLE_PAGE } from '../../../../../credential'
+import { LOGIN, EMAIL, PASSWORD } from '../../../../../credential'
 
 type UserData = {
     login: string,
     email: string,
     password: string,
-    urlOverviewPage: string,
-    urlIssuesPage: string,
-    urlLabelsPage: string,
     avatarFilePath: string,
     pronouns: string,
     bio: string,
@@ -38,16 +35,24 @@ const userData: UserData = {
     login: LOGIN,
     email: EMAIL,
     password: PASSWORD,
-    urlOverviewPage: URL_OVERVIEW_PAGE,
-    urlIssuesPage: URL_ISSUES_PAGE,
-    urlLabelsPage: URL_LABLE_PAGE,
     avatarFilePath: 'src/files/jpg_120x120_avatar_test.jpg',
     pronouns: 'he/him',
     bio: `${mask}-bio-${getStringTimestamp()}-${getRandomString(getRandomNumber())}`,
     name: `${mask}-name-${getStringTimestamp()}-${getRandomString(getRandomNumber())}`
 }
 
+const emptyData: UserData = {
+    login: LOGIN,
+    email: EMAIL,
+    password: PASSWORD,
+    avatarFilePath: 'src/files/jpg_120x120_avatar_test.jpg',
+    pronouns: 'he/him',
+    bio: '',
+    name: ''
+}
+
 export {
     UserData,
     userData,
+    emptyData,
 }
