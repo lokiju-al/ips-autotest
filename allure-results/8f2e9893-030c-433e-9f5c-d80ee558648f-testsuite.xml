@@ -1,0 +1,146 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681154396387' stop='1681154420009'>
+    <name>Public profile test</name>
+    <title>Public profile test</title>
+    <test-cases>
+        <test-case start='1681154396387' status='passed' stop='1681154402499'>
+            <name>User should be able to change Name</name>
+            <title>User should be able to change Name</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps>
+                <step start='1681154396836' status='passed' stop='1681154396836'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681154397789' status='passed' stop='1681154397789'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681154397822' status='passed' stop='1681154397822'>
+                    <name>Ввести логин lokiju-test</name>
+                    <title>Ввести логин lokiju-test</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681154397896' status='passed' stop='1681154397896'>
+                    <name>Ввести пароль Hytplonb3620</name>
+                    <title>Ввести пароль Hytplonb3620</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681154397978' status='passed' stop='1681154397978'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='e5843ff6-e30e-4ef9-abbf-e60bd4446de4-attachment.png' type='image/png' size='102265'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681154402499' status='passed' stop='1681154405215'>
+            <name>User should be able to change Bio</name>
+            <title>User should be able to change Bio</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='0ab98cff-b409-420f-bffe-5165578bdf75-attachment.png' type='image/png' size='104945'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681154405215' status='passed' stop='1681154407717'>
+            <name>User should be able to change Pronouns</name>
+            <title>User should be able to change Pronouns</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='aefb6539-a6ed-4d23-96a6-e82c8f786d47-attachment.png' type='image/png' size='104954'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681154407717' status='passed' stop='1681154413522'>
+            <name>Avatar with proper type should be uploaded in profile</name>
+            <title>Avatar with proper type should be uploaded in profile</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='ec79284e-1434-464c-8092-1961abbd1742-attachment.png' type='image/png' size='100921'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681154413522' status='passed' stop='1681154420009'>
+            <name>Avatar with wrong type should not be uploaded in profile</name>
+            <title>Avatar with wrong type should not be uploaded in profile</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='f0745312-dadf-4106-82a9-b0009aa3ad89-attachment.png' type='image/png' size='108888'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
