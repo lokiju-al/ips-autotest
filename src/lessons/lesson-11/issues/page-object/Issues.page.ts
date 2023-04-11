@@ -85,6 +85,7 @@ class IssuesPage {
         })
         await this.getFieldFilterLabels().setValue(labelName)
         await this.browser.pause(1000)
+        await browser.keys('Enter') //вынести в PO
     }
 
     public async fillFieldTitle(title: string): Promise<void> {

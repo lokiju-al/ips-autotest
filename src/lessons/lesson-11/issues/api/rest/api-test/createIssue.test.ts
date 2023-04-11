@@ -3,7 +3,6 @@ import { createIssueModel, IssueModel } from "../../../model/issue.model"
 import { CreateIssueResponse, IssueAPIService } from "../../../../api/api-service/IssueAPIService"
 import { issueData } from '../../../data/issue.data'
 
-
 describe('POST /repos/{owner}/{repo}/issues', () => {
     let issue: IssueModel
 

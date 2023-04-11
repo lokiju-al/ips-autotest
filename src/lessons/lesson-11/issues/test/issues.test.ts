@@ -6,13 +6,15 @@ import { userData } from '../../login/data/user.data'
 import { UserModel, createUserModel } from '../../login/model/user.model'
 import { issueData } from '../data/issue.data'
 import { IssueModel, createIssueModel } from '../model/issue.model'
+import { AxiosResponse } from 'axios'
+import { CreateIssueResponse, IssueAPIService } from "../../api/api-service/IssueAPIService"
 
 describe('Issues test', async () => {
     let loginPage: LoginPage
     let issuesPage: IssuesPage
     let labelsPage: LabelsPage
+    let issue: IssueModel
     const user: UserModel = createUserModel(userData)
-    const issue: IssueModel = createIssueModel(issueData)
     const tooLongTitle: string = '123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 12345'
     const invalidFile: string = 'src/files/exe_git-bash.exe'
 
@@ -26,12 +28,12 @@ describe('Issues test', async () => {
 
     beforeEach(async () => {
         await issuesPage.open()
+        issue = createIssueModel(issueData)
     })
 
     it('The user should be able to successfully create tasks with a valid number of characters in the title', async () => {
-        await issuesPage.clickButtonNewIssue()
-        await issuesPage.fillFieldTitle(issue.title)
-        await issuesPage.clickButtonSubmitNewIssue()
+        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+        await browser.url(response.data.html_url)
 
         expect(await issuesPage.getIssueTitleText()).toEqual(issue.title)
     })
@@ -60,46 +62,42 @@ describe('Issues test', async () => {
         expect(await issuesPage.getAlertInvalidFileText()).toEqual('We don’t support that file type. Try again with a GIF, JPEG, JPG, MOV, MP4, PNG, SVG, WEBM, CSV, DOCX, FODG, FODP, FODS, FODT, GZ, LOG, MD, ODF, ODG, ODP, ODS, ODT, PATCH, PDF, PPTX, TGZ, TXT, XLS, XLSX or ZIP.')
     })
 
-    it('The user should be able to leave comments if they are enabled', async () => {
-        await issuesPage.clickButtonNewIssue()
-        await issuesPage.fillFieldTitle(issue.title)
-        await issuesPage.clickButtonSubmitNewIssue()
-        const issueUrl = await browser.getUrl()
-        await issuesPage.signOut()
-        await loginPage.open()
-        await loginPage.login(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
-        await browser.url(issueUrl)
-        await issuesPage.fillFieldComment(issue.commentText)
-        await issuesPage.clickButtonSaveComment()
+    describe('Comments test', async () => {
+        it('The user should be able to leave comments if they are enabled', async () => {
+            const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+            await issuesPage.signOut()
+            await loginPage.open()
+            await loginPage.login(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
+            await browser.url(response.data.html_url)
+            await issuesPage.fillFieldComment(issue.commentText)
+            await issuesPage.clickButtonSaveComment()
 
-        expect(await issuesPage.getSavedCommentText()).toEqual(issue.commentText)
-        await issuesPage.signOut()
-        await loginPage.open()
-        await loginPage.login(user.login, user.password)
-    })
+            expect(await issuesPage.getSavedCommentText()).toEqual(issue.commentText)
+        })
 
-    it('The user should be able to block comments', async () => {//иты вынести в отдельный дескрайб
-        await issuesPage.clickButtonNewIssue()
-        await issuesPage.fillFieldTitle(issue.title)
-        await issuesPage.clickButtonSubmitNewIssue()
-        await issuesPage.clickButtonLockComments()
-        await issuesPage.clickButtonLockCommentsApply()
-        const issueUrl = await browser.getUrl()
-        await issuesPage.signOut()
-        await loginPage.open()
-        await loginPage.login(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
-        await browser.url(issueUrl)
-        //убрать зависимость от текста
-        expect(await issuesPage.getMessageLockCommentsText()).toEqual('This conversation has been locked and limited to collaborators.')
-        await issuesPage.signOut()
-        await loginPage.open()
-        await loginPage.login(user.login, user.password)
+        it('The user should be able to block comments', async () => {//иты вынести в отдельный дескрайб
+            const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+            await browser.url(response.data.html_url)
+            await issuesPage.clickButtonLockComments()
+            await issuesPage.clickButtonLockCommentsApply()
+            await issuesPage.signOut()
+            await loginPage.open()
+            await loginPage.login(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
+            await browser.url(response.data.html_url)
+            //убрать зависимость от текста
+            expect(await issuesPage.getMessageLockCommentsText()).toEqual('This conversation has been locked and limited to collaborators.')
+        })
+
+        afterEach(async () => {
+            await issuesPage.signOut()
+            await loginPage.open()
+            await loginPage.login(user.login, user.password)
+        })
     })
 
     it('The user should be able to close the issue', async () => {
-        await issuesPage.clickButtonNewIssue()
-        await issuesPage.fillFieldTitle(issue.title)
-        await issuesPage.clickButtonSubmitNewIssue()
+        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+        await browser.url(response.data.html_url)
         await issuesPage.clickButtonCloseIssue()
 
         expect(await issuesPage.getMessageClosedIssueText()).toEqual('Closed')
@@ -110,38 +108,31 @@ describe('Issues test', async () => {
         await labelsPage.clickButtonNewLabel()
         await labelsPage.fillFieldLabelName(issue.tag)
         await labelsPage.clickButtonCreateLabel()
-        await issuesPage.open()
-        await issuesPage.clickButtonNewIssue()
-        await issuesPage.fillFieldTitle(issue.tag)
-        await issuesPage.clickButtonSubmitNewIssue()
+        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+        await browser.url(response.data.html_url)
         await issuesPage.clickButtonLabels()
         await issuesPage.fillFieldFilterLabels(issue.tag)
-        await browser.keys('Enter') //вынести в PO
         await issuesPage.clickButtonLabels()
         await labelsPage.open()
         await labelsPage.fillFieldSearchAllLabels(issue.tag)
-        await browser.keys('Enter')
         await labelsPage.clickButtonLabelByFilter()
 
-        expect(await labelsPage.getButtonIssueFindByLabelText()).toEqual(issue.tag)
+        expect(await labelsPage.getButtonIssueFindByLabelText()).toEqual(issue.title)
     })
 
     it('The user should not be able to find a non-existent tag', async () => {
         await labelsPage.open()
         await labelsPage.fillFieldSearchAllLabels('Этот тег не существует')
-        await browser.keys('Enter')
 
         expect(await labelsPage.getMessageNoMatchingLabelsText()).toEqual('No matching labels')
     })
 
     it('The user should be able to delete a task', async () => {
-        await issuesPage.clickButtonNewIssue()
-        await issuesPage.fillFieldTitle(issue.title)
-        await issuesPage.clickButtonSubmitNewIssue()
-        const issueUrl = await browser.getUrl()//  с урлами вынести в перменные это не относится к модели
+        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+        await browser.url(response.data.html_url)
         await issuesPage.clickButtonDeleteIssue()
         await issuesPage.clickButtonDeleteIssueApply()
-        await browser.url(issueUrl)
+        await browser.url(response.data.html_url)
 
         expect(await issuesPage.getMessageDeletedIssueText()).toEqual('This issue has been deleted.')
     })

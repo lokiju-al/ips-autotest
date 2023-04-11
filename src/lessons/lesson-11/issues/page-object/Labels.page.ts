@@ -42,6 +42,7 @@ class LabelsPage {
             timeoutMsg: 'Field Search All Labels was not displayed'
         })
         await this.getFieldSearchAllLabels().setValue(labelName)
+        await browser.keys('Enter')
     }
 
     public getButtonIssueFindByLabelText(): Promise<string> {
