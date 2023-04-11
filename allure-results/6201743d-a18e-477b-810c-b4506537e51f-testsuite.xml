@@ -1,0 +1,41 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681255879058' stop='1681255881143'>
+    <name>POST /repos/{owner}/{repo}/issues</name>
+    <title>POST /repos/{owner}/{repo}/issues</title>
+    <test-cases>
+        <test-case start='1681255879064' status='failed' stop='1681255881141'>
+            <name>Issue should be created</name>
+            <title>Issue should be created</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='243d2c57-8fe5-465b-9b08-730b26b40dd9-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+            <failure>
+                <message>expect(received).toEqual(expected) // deep equality
+                
+                Expected: "https://github.com/lokiju-test/autotest-ips/issues/2151"
+                Received: "https://github.com/lokiju-test/autotest-ips/issues/215"</message>
+                <stack-trace>Error: expect(received).toEqual(expected) // deep equality
+                
+                Expected: "https://github.com/lokiju-test/autotest-ips/issues/2151"
+                Received: "https://github.com/lokiju-test/autotest-ips/issues/215"
+                    at C:\Users\alexander.platov\Documents\GitHub\autotest-ips\src\lessons\lesson-11\issues\api\rest\api-test\createIssue.test.ts:27:105
+                    at Generator.next (&lt;anonymous>)
+                    at fulfilled (C:\Users\alexander.platov\Documents\GitHub\autotest-ips\src\lessons\lesson-11\issues\api\rest\api-test\createIssue.test.ts:5:58)
+                    at processTicksAndRejections (node:internal/process/task_queues:95:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

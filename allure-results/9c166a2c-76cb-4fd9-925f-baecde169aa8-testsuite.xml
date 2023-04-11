@@ -1,0 +1,27 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681254312514' stop='1681254314727'>
+    <name>POST /repos/{owner}/{repo}/issues</name>
+    <title>POST /repos/{owner}/{repo}/issues</title>
+    <test-cases>
+        <test-case start='1681254312515' status='passed' stop='1681254314725'>
+            <name>Issue should be created</name>
+            <title>Issue should be created</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='fad16e8e-04e7-4c36-8ffd-4436882a87b3-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -1,4 +1,4 @@
-import { COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD } from '../../../../../credential'
+import { COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD, LOGIN, REPO } from '../../../../../credential'
 import { LoginPage } from '../../login/page-object/Login.page'
 import { IssuesPage } from '../page-object/Issues.page'
 import { LabelsPage } from '../page-object/Labels.page'
@@ -32,7 +32,7 @@ describe('Issues test', async () => {
     })
 
     it('The user should be able to successfully create tasks with a valid number of characters in the title', async () => {
-        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(LOGIN, REPO, issue)
         await browser.url(response.data.html_url)
 
         expect(await issuesPage.getIssueTitleText()).toEqual(issue.title)
@@ -64,7 +64,7 @@ describe('Issues test', async () => {
 
     describe('Comments test', async () => {
         it('The user should be able to leave comments if they are enabled', async () => {
-            const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+            const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(LOGIN, REPO, issue)
             await issuesPage.signOut()
             await loginPage.open()
             await loginPage.login(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
@@ -76,7 +76,7 @@ describe('Issues test', async () => {
         })
 
         it('The user should be able to block comments', async () => {//иты вынести в отдельный дескрайб
-            const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+            const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(LOGIN, REPO, issue)
             await browser.url(response.data.html_url)
             await issuesPage.clickButtonLockComments()
             await issuesPage.clickButtonLockCommentsApply()
@@ -96,7 +96,7 @@ describe('Issues test', async () => {
     })
 
     it('The user should be able to close the issue', async () => {
-        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(LOGIN, REPO, issue)
         await browser.url(response.data.html_url)
         await issuesPage.clickButtonCloseIssue()
 
@@ -108,7 +108,7 @@ describe('Issues test', async () => {
         await labelsPage.clickButtonNewLabel()
         await labelsPage.fillFieldLabelName(issue.tag)
         await labelsPage.clickButtonCreateLabel()
-        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(LOGIN, REPO, issue)
         await browser.url(response.data.html_url)
         await issuesPage.clickButtonLabels()
         await issuesPage.fillFieldFilterLabels(issue.tag)
@@ -128,7 +128,7 @@ describe('Issues test', async () => {
     })
 
     it('The user should be able to delete a task', async () => {
-        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
+        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(LOGIN, REPO, issue)
         await browser.url(response.data.html_url)
         await issuesPage.clickButtonDeleteIssue()
         await issuesPage.clickButtonDeleteIssueApply()

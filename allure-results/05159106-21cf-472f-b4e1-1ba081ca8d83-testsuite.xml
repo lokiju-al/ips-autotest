@@ -1,0 +1,202 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681256067564' stop='1681256124199'>
+    <name>Issues test</name>
+    <title>Issues test</title>
+    <test-cases>
+        <test-case start='1681256067564' status='passed' stop='1681256072100'>
+            <name>The user should be able to successfully create tasks with a valid number of characters in the title</name>
+            <title>The user should be able to successfully create tasks with a valid number of characters in the title</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps>
+                <step start='1681256067565' status='passed' stop='1681256067565'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256068379' status='passed' stop='1681256068379'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256068412' status='passed' stop='1681256068412'>
+                    <name>Ввести логин lokiju-test</name>
+                    <title>Ввести логин lokiju-test</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256068484' status='passed' stop='1681256068484'>
+                    <name>Ввести пароль Hytplonb3620</name>
+                    <title>Ввести пароль Hytplonb3620</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256068562' status='passed' stop='1681256068562'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='3ed5a639-f631-4c2c-8156-42b9ab90b2e6-attachment.png' type='image/png' size='101593'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681256072101' status='passed' stop='1681256075614'>
+            <name>The user should not be able to successfully create tasks with a 1025 character title</name>
+            <title>The user should not be able to successfully create tasks with a 1025 character title</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='6c313283-e466-406c-9567-0229e70ff523-attachment.png' type='image/png' size='96285'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681256075614' status='passed' stop='1681256081489'>
+            <name>The user should be able to successfully add valid format files to the task</name>
+            <title>The user should be able to successfully add valid format files to the task</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='632e9c1f-62d3-4c4c-b431-b0c6c28757cc-attachment.png' type='image/png' size='97931'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681256081489' status='passed' stop='1681256085540'>
+            <name>The user should not be able to successfully add invalid format files to the task</name>
+            <title>The user should not be able to successfully add invalid format files to the task</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='fb693c2c-0ece-4702-be82-9e56cb27dbc3-attachment.png' type='image/png' size='99071'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681256085541' status='passed' stop='1681256089804'>
+            <name>The user should be able to close the issue</name>
+            <title>The user should be able to close the issue</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='4e22748d-4f36-4ef5-993a-fe063821ab04-attachment.png' type='image/png' size='102313'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681256089804' status='passed' stop='1681256096763'>
+            <name>The user should be able to find an issue by an existing tag</name>
+            <title>The user should be able to find an issue by an existing tag</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='010144c2-2b93-4a9f-ab05-083b269e545d-attachment.png' type='image/png' size='96346'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681256096763' status='passed' stop='1681256098782'>
+            <name>The user should not be able to find a non-existent tag</name>
+            <title>The user should not be able to find a non-existent tag</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='aca4e67b-7f44-4d7f-aafa-f66bf94ca3d5-attachment.png' type='image/png' size='65940'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681256098783' status='passed' stop='1681256102823'>
+            <name>The user should be able to delete a task</name>
+            <title>The user should be able to delete a task</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='70aec561-7ab0-4ce2-b918-95d853085592-attachment.png' type='image/png' size='62694'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

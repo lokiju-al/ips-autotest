@@ -1,0 +1,177 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681256102823' stop='1681256124191'>
+    <name>Issues test: Comments test</name>
+    <title>Issues test: Comments test</title>
+    <test-cases>
+        <test-case start='1681256102824' status='passed' stop='1681256114134'>
+            <name>The user should be able to leave comments if they are enabled</name>
+            <title>The user should be able to leave comments if they are enabled</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps>
+                <step start='1681256105881' status='passed' stop='1681256105881'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256106551' status='passed' stop='1681256106551'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256106580' status='passed' stop='1681256106580'>
+                    <name>Ввести логин lokiju-al</name>
+                    <title>Ввести логин lokiju-al</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256106646' status='passed' stop='1681256106646'>
+                    <name>Ввести пароль Anvruqok4915</name>
+                    <title>Ввести пароль Anvruqok4915</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256106730' status='passed' stop='1681256106730'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256112334' status='passed' stop='1681256112334'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256112873' status='passed' stop='1681256112873'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256112900' status='passed' stop='1681256112900'>
+                    <name>Ввести логин lokiju-test</name>
+                    <title>Ввести логин lokiju-test</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256112978' status='passed' stop='1681256112978'>
+                    <name>Ввести пароль Hytplonb3620</name>
+                    <title>Ввести пароль Hytplonb3620</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256113060' status='passed' stop='1681256113060'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='6fb059e1-ef26-4499-be0f-ed2e857d3380-attachment.png' type='image/png' size='99620'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681256114134' status='passed' stop='1681256124191'>
+            <name>The user should be able to block comments</name>
+            <title>The user should be able to block comments</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps>
+                <step start='1681256118684' status='passed' stop='1681256118684'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256118994' status='passed' stop='1681256118994'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256119016' status='passed' stop='1681256119016'>
+                    <name>Ввести логин lokiju-al</name>
+                    <title>Ввести логин lokiju-al</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256119096' status='passed' stop='1681256119096'>
+                    <name>Ввести пароль Anvruqok4915</name>
+                    <title>Ввести пароль Anvruqok4915</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256119176' status='passed' stop='1681256119176'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256122416' status='passed' stop='1681256122416'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256122894' status='passed' stop='1681256122894'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256122916' status='passed' stop='1681256122916'>
+                    <name>Ввести логин lokiju-test</name>
+                    <title>Ввести логин lokiju-test</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256122983' status='passed' stop='1681256122983'>
+                    <name>Ввести пароль Hytplonb3620</name>
+                    <title>Ввести пароль Hytplonb3620</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681256123073' status='passed' stop='1681256123073'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='77c17211-5601-40ac-b615-ce5ed6aaa210-attachment.png' type='image/png' size='96191'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

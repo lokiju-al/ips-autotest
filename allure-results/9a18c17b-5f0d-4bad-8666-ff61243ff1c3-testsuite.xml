@@ -1,0 +1,42 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681249159179' stop='1681249160081'>
+    <name>POST /repos/{owner}/{repo}/issues</name>
+    <title>POST /repos/{owner}/{repo}/issues</title>
+    <test-cases>
+        <test-case start='1681249159180' status='broken' stop='1681249160080'>
+            <name>Issue should not be created in a repository where the ability to create tasks is disabled</name>
+            <title>Issue should not be created in a repository where the ability to create tasks is disabled</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='cb8f4c35-843b-4832-b967-bd16535babc1-attachment.png' type='image/png' size='7068'/>
+                <attachment title='Screenshot' source='70e11f05-7d8a-4874-9dea-1179b120f2b4-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+            <failure>
+                <message>Failed to parse URL from undefined</message>
+                <stack-trace>TypeError: Failed to parse URL from undefined
+                    at Object.fetch (node:internal/deps/undici/undici:11413:11)
+                    at processTicksAndRejections (node:internal/process/task_queues:95:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

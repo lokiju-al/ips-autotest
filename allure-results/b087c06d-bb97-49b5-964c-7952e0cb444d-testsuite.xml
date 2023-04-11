@@ -1,0 +1,41 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681255558060' stop='1681255560038'>
+    <name>POST /repos/{owner}/{repo}/issues</name>
+    <title>POST /repos/{owner}/{repo}/issues</title>
+    <test-cases>
+        <test-case start='1681255558061' status='failed' stop='1681255560037'>
+            <name>Issue should be created</name>
+            <title>Issue should be created</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='a93de88c-68f9-4da1-8511-5514684a331e-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+            <failure>
+                <message>expect(received).toEqual(expected) // deep equality
+                
+                Expected: "https://github.com/lokiju-test/autotest-ips/issues/2131"
+                Received: {"active_lock_reason": null, "assignee": null, "assignees": [], "author_association": "OWNER", "body": null, "closed_at": null, "comments": 0, "comments_url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213/comments", "created_at": "2023-04-11T23:25:57Z", "events_url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213/events", "html_url": "https://github.com/lokiju-test/autotest-ips/issues/213", "id": 1663365162, "labels": [], "labels_url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213/labels{/name}", "locked": false, "milestone": null, "node_id": "I_kwDOJIrCBM5jJPAq", "number": 213, "performed_via_github_app": null, "reactions": {"+1": 0, "-1": 0, "confused": 0, "eyes": 0, "heart": 0, "hooray": 0, "laugh": 0, "rocket": 0, "total_count": 0, "url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213/reactions"}, "repository_url": "https://api.github.com/repos/lokiju-test/autotest-ips", "state": "open", "state_reason": null, "timeline_url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213/timeline", "title": "issues-title-1681255558063-qQdtdG", "updated_at": "2023-04-11T23:25:57Z", "url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213", "user": {"avatar_url": "https://avatars.githubusercontent.com/u/127681204?v=4", "events_url": "https://api.github.com/users/lokiju-test/events{/privacy}", "followers_url": "https://api.github.com/users/lokiju-test/followers", "following_url": "https://api.github.com/users/lokiju-test/following{/other_user}", "gists_url": "https://api.github.com/users/lokiju-test/gists{/gist_id}", "gravatar_id": "", "html_url": "https://github.com/lokiju-test", "id": 127681204, "login": "lokiju-test", "node_id": "U_kgDOB5xCtA", "organizations_url": "https://api.github.com/users/lokiju-test/orgs", "received_events_url": "https://api.github.com/users/lokiju-test/received_events", "repos_url": "https://api.github.com/users/lokiju-test/repos", "site_admin": false, "starred_url": "https://api.github.com/users/lokiju-test/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/lokiju-test/subscriptions", "type": "User", "url": "https://api.github.com/users/lokiju-test"}}</message>
+                <stack-trace>Error: expect(received).toEqual(expected) // deep equality
+                
+                Expected: "https://github.com/lokiju-test/autotest-ips/issues/2131"
+                Received: {"active_lock_reason": null, "assignee": null, "assignees": [], "author_association": "OWNER", "body": null, "closed_at": null, "comments": 0, "comments_url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213/comments", "created_at": "2023-04-11T23:25:57Z", "events_url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213/events", "html_url": "https://github.com/lokiju-test/autotest-ips/issues/213", "id": 1663365162, "labels": [], "labels_url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213/labels{/name}", "locked": false, "milestone": null, "node_id": "I_kwDOJIrCBM5jJPAq", "number": 213, "performed_via_github_app": null, "reactions": {"+1": 0, "-1": 0, "confused": 0, "eyes": 0, "heart": 0, "hooray": 0, "laugh": 0, "rocket": 0, "total_count": 0, "url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213/reactions"}, "repository_url": "https://api.github.com/repos/lokiju-test/autotest-ips", "state": "open", "state_reason": null, "timeline_url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213/timeline", "title": "issues-title-1681255558063-qQdtdG", "updated_at": "2023-04-11T23:25:57Z", "url": "https://api.github.com/repos/lokiju-test/autotest-ips/issues/213", "user": {"avatar_url": "https://avatars.githubusercontent.com/u/127681204?v=4", "events_url": "https://api.github.com/users/lokiju-test/events{/privacy}", "followers_url": "https://api.github.com/users/lokiju-test/followers", "following_url": "https://api.github.com/users/lokiju-test/following{/other_user}", "gists_url": "https://api.github.com/users/lokiju-test/gists{/gist_id}", "gravatar_id": "", "html_url": "https://github.com/lokiju-test", "id": 127681204, "login": "lokiju-test", "node_id": "U_kgDOB5xCtA", "organizations_url": "https://api.github.com/users/lokiju-test/orgs", "received_events_url": "https://api.github.com/users/lokiju-test/received_events", "repos_url": "https://api.github.com/users/lokiju-test/repos", "site_admin": false, "starred_url": "https://api.github.com/users/lokiju-test/starred{/owner}{/repo}", "subscriptions_url": "https://api.github.com/users/lokiju-test/subscriptions", "type": "User", "url": "https://api.github.com/users/lokiju-test"}}
+                    at C:\Users\alexander.platov\Documents\GitHub\autotest-ips\src\lessons\lesson-11\issues\api\rest\api-test\createIssue.test.ts:28:95
+                    at Generator.next (&lt;anonymous>)
+                    at fulfilled (C:\Users\alexander.platov\Documents\GitHub\autotest-ips\src\lessons\lesson-11\issues\api\rest\api-test\createIssue.test.ts:5:58)
+                    at processTicksAndRejections (node:internal/process/task_queues:95:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

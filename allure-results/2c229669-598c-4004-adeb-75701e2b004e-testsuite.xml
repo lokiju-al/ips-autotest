@@ -1,0 +1,101 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681252821550' stop='1681252824928'>
+    <name>POST /repos/{owner}/{repo}/issues</name>
+    <title>POST /repos/{owner}/{repo}/issues</title>
+    <test-cases>
+        <test-case start='1681252821550' status='failed' stop='1681252823604'>
+            <name>Issue should be created</name>
+            <title>Issue should be created</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='f06de8c0-76dd-4b78-961b-2296d53a919d-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+            <failure>
+                <message>expect(received).toEqual(expected) // deep equality
+                
+                Expected: "https://github.com/lokiju-test/autotest-ips/issues/200"
+                Received: undefined</message>
+                <stack-trace>Error: expect(received).toEqual(expected) // deep equality
+                
+                Expected: "https://github.com/lokiju-test/autotest-ips/issues/200"
+                Received: undefined
+                    at C:\Users\alexander.platov\Documents\GitHub\autotest-ips\src\lessons\lesson-11\issues\api\rest\api-test\createIssue.test.ts:27:40
+                    at Generator.next (&lt;anonymous>)
+                    at fulfilled (C:\Users\alexander.platov\Documents\GitHub\autotest-ips\src\lessons\lesson-11\issues\api\rest\api-test\createIssue.test.ts:5:58)
+                    at processTicksAndRejections (node:internal/process/task_queues:95:5)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1681252823604' status='passed' stop='1681252824013'>
+            <name>Issue should not be created in a repository where the ability to create issues is disabled</name>
+            <title>Issue should not be created in a repository where the ability to create issues is disabled</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='8a846e1c-9fdd-429f-af14-2ae02ef7b562-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681252824013' status='passed' stop='1681252824414'>
+            <name>Issue should not be created in a private repository</name>
+            <title>Issue should not be created in a private repository</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='d5514715-ec23-4092-ab03-a3056ab774f1-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681252824414' status='passed' stop='1681252824927'>
+            <name>Issue should not be created if users are not be able to interact with the repository</name>
+            <title>Issue should not be created if users are not be able to interact with the repository</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='3d107e42-b55f-440f-8171-3e237be6c49b-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

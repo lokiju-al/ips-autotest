@@ -12,6 +12,15 @@ class IssueAPIProvider extends GitAPIProvider {
         )
         return this.sendRequest(apiRequest)
     }
+
+    public getIssue<T>(owner: string, repo: string): Promise<AxiosResponse<T>> {
+        const apiRequest: AxiosRequestConfig = IssueAPIProvider.configureRequest(
+            `/repos/${owner}/${repo}/issues`,
+            'GET',
+            this.headers,
+        )
+        return this.sendRequest(apiRequest)
+    }
 }
 
 export {

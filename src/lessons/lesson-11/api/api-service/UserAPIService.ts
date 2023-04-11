@@ -13,7 +13,7 @@ class UserAPIService {
     public static async updateAuthenticatedUser(user: UserModel): Promise<AxiosResponse<UserResponse>> {
         try {
             const data: UpdateUserRequest = UserAPIDataProvider.getUpdatedUserData(user)
-            const userAPIProvider: UserAPIProvider = new UserAPIProvider()
+            const userAPIProvider: UserAPIProvider = new UserAPIProvider(false)
             const response: AxiosResponse<UserResponse> = await userAPIProvider.updateAuthenticatedUser(data)
             return response
         } catch (error) {
