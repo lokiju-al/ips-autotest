@@ -1,9 +1,7 @@
 import { AxiosResponse } from 'axios'
 import { createIssueModel, IssueModel } from "../../../model/issue.model"
-import { LOGIN, REPO } from '../../../../../../../credential'
-import { CreateIssueResponse } from "../../../../api/api-service/IssueAPIService"
+import { CreateIssueResponse, IssueAPIService } from "../../../../api/api-service/IssueAPIService"
 import { issueData } from '../../../data/issue.data'
-import { IssueAPIProvider } from "../../../../api/api-provider/IssueAPIProvider"
 
 
 describe('POST /repos/{owner}/{repo}/issues', () => {
@@ -14,15 +12,7 @@ describe('POST /repos/{owner}/{repo}/issues', () => {
     })
 
     it('Issue should be created', async () => {
-        const issueAPIProvider: IssueAPIProvider = new IssueAPIProvider(false)
-        const response: AxiosResponse<CreateIssueResponse> = await issueAPIProvider.create(
-            LOGIN,
-            REPO,
-            {
-                title: issue.title,
-            },
-        )
-
+        const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(issue)
         expect(response.status).toEqual(201)
         expect(response.data.title).toEqual(issue.title)
         expect(response.data.state).toEqual(issue.state)

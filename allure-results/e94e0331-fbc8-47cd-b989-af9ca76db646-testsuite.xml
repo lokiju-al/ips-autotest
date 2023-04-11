@@ -1,0 +1,31 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681240564859' stop='1681240568232'>
+    <name>Public profile test: Email settings test</name>
+    <title>Public profile test: Email settings test</title>
+    <test-cases>
+        <test-case start='1681240564859' status='passed' stop='1681240568231'>
+            <name>User should be able to set Email visible</name>
+            <title>User should be able to set Email visible</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='45d156f7-5b02-4f63-b3eb-c7e260f7b009-attachment.png' type='image/png' size='106749'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
