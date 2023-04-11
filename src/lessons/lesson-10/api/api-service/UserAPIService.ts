@@ -9,9 +9,6 @@ type UserResponse = {
     bio: string,
 }
 
-export {
-}
-
 class UserAPIService {
     public static async updateAuthenticatedUser(user: UserModel): Promise<AxiosResponse<UserResponse>> {
         try {
