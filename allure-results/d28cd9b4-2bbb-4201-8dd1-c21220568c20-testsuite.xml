@@ -1,0 +1,62 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681335868437' stop='1681335929794'>
+    <name>Issues test</name>
+    <title>Issues test</title>
+    <test-cases>
+        <test-case start='1681335868437' status='passed' stop='1681335872864'>
+            <name>The user should not be able to find a non-existent tag</name>
+            <title>The user should not be able to find a non-existent tag</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps>
+                <step start='1681335868438' status='passed' stop='1681335868438'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681335869277' status='passed' stop='1681335869277'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681335869307' status='passed' stop='1681335869307'>
+                    <name>Ввести логин lokiju-test</name>
+                    <title>Ввести логин lokiju-test</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681335869376' status='passed' stop='1681335869376'>
+                    <name>Ввести пароль Hytplonb3620</name>
+                    <title>Ввести пароль Hytplonb3620</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681335869454' status='passed' stop='1681335869454'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='1ed064c4-66c1-4b12-8a03-ef890670ef2d-attachment.png' type='image/png' size='65884'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

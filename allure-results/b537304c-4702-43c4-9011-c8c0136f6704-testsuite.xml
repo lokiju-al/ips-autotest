@@ -1,0 +1,79 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681335872865' stop='1681335886459'>
+    <name>Issues test: Issues adding file tests and negative tests</name>
+    <title>Issues test: Issues adding file tests and negative tests</title>
+    <test-cases>
+        <test-case start='1681335872865' status='passed' stop='1681335876483'>
+            <name>The user should not be able to successfully create tasks with a 1025 character title</name>
+            <title>The user should not be able to successfully create tasks with a 1025 character title</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='7d7442c1-79d3-4896-b74b-ff3b9b639a91-attachment.png' type='image/png' size='96245'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681335876483' status='passed' stop='1681335882335'>
+            <name>The user should be able to successfully add valid format files to the task</name>
+            <title>The user should be able to successfully add valid format files to the task</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='847a8afe-c689-465e-88dd-e3777ac5d740-attachment.png' type='image/png' size='98773'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681335882335' status='passed' stop='1681335886458'>
+            <name>The user should not be able to successfully add invalid format files to the task</name>
+            <title>The user should not be able to successfully add invalid format files to the task</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='0796b569-6cdb-4780-869a-f18e0effee21-attachment.png' type='image/png' size='99302'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

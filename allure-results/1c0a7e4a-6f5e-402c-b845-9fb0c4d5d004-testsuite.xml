@@ -1,0 +1,87 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681335952825' stop='1681335956152'>
+    <name>POST /repos/{owner}/{repo}/issues</name>
+    <title>POST /repos/{owner}/{repo}/issues</title>
+    <test-cases>
+        <test-case start='1681335952826' status='passed' stop='1681335954822'>
+            <name>Issue should be created</name>
+            <title>Issue should be created</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='92e6a57a-1c29-4df6-a74a-2011451b906d-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681335954822' status='passed' stop='1681335955220'>
+            <name>Issue should not be created in a repository where the ability to create issues is disabled</name>
+            <title>Issue should not be created in a repository where the ability to create issues is disabled</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='affe7d78-ea2e-4ef8-92db-c3a9d1e1a947-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681335955220' status='passed' stop='1681335955634'>
+            <name>Issue should not be created in a private repository</name>
+            <title>Issue should not be created in a private repository</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='d18c741f-75d6-441f-ad52-3de7c8947f2d-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681335955634' status='passed' stop='1681335956151'>
+            <name>Issue should not be created if users are not be able to interact with the repository</name>
+            <title>Issue should not be created if users are not be able to interact with the repository</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='9f97ebb4-b3b4-4ea6-9318-effb1b9be84b-attachment.png' type='image/png' size='7068'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

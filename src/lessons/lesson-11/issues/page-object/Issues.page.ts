@@ -9,90 +9,36 @@ class IssuesPage {
         this.browser = browser
     }
 
-    public async clickButtonDeleteIssue(): Promise<void> {
-        await this.getButtonDeleteIssue().waitForClickable({
-            timeoutMsg: 'Button Delete Issue was not clickable'
-        })
-        await this.getButtonDeleteIssue().click()
-    }
-
-    public async clickButtonDeleteIssueApply(): Promise<void> {
-        await this.getButtonDeleteIssueApply().waitForClickable({
-            timeoutMsg: 'Button Delete Issue Apply was not clickable'
-        })
-        await this.getButtonDeleteIssueApply().click()
-    }
-
-    public async clickButtonCloseIssue(): Promise<void> {
+    public async closeIssue(): Promise<void> {
         await this.getButtonCloseIssue().waitForClickable({
             timeoutMsg: 'Button Close Issue was not clickable'
         })
         await this.getButtonCloseIssue().click()
     }
 
-    public async clickButtonLabels(): Promise<void> {
-        await this.getButtonLabels().waitForClickable({
-            timeoutMsg: 'Button Labels was not clickable'
-        })
-        await this.getButtonLabels().click()
-    }
-
-    public async clickButtonLockComments(): Promise<void> {
-        await this.getButtonLockComments().waitForClickable({
-            timeoutMsg: 'Button Lock Comments was not clickable'
-        })
-        await this.getButtonLockComments().click()
-    }
-
-    public async clickButtonLockCommentsApply(): Promise<void> {
-        await this.getButtonLockCommentsApply().waitForClickable({
-            timeoutMsg: 'Button Lock Comments Apply was not clickable'
-        })
-        await this.getButtonLockCommentsApply().click()
-    }
-
-    public async clickButtonNewIssue(): Promise<void> {//переименовать
+    public async createNewIssue(): Promise<void> {//переименовать
         await this.getButtonNewIssue().waitForClickable({
             timeoutMsg: 'Button New Issue was not clickable'
         })
         await this.getButtonNewIssue().click()
     }
 
-    public async clickButtonSaveComment(): Promise<void> {
-        await this.getButtonSaveComment().waitForClickable({
-            timeoutMsg: 'Button Save Comment was not clickable'
+    public async deleteIssue(): Promise<void> {
+        await this.getButtonDeleteIssue().waitForClickable({
+            timeoutMsg: 'Button Delete Issue was not clickable'
         })
-        await this.getButtonSaveComment().click()
+        await this.getButtonDeleteIssue().click()
     }
 
-    public async clickButtonSubmitNewIssue(): Promise<void> {
-        await this.getButtonSubmitNewIssue().waitForClickable({
-            timeoutMsg: 'Button Submit New Issue was not clickable'
+    public async deleteIssueApply(): Promise<void> {
+        await this.getButtonDeleteIssueApply().waitForClickable({
+            timeoutMsg: 'Button Delete Issue Apply was not clickable'
         })
-        await this.getButtonSubmitNewIssue().click()
+        await this.getButtonDeleteIssueApply().click()
     }
 
-    public async fillFieldComment(comment: string): Promise<void> {
-        await this.getFieldComment().waitForDisplayed({
-            timeoutMsg: 'Comment field was not displayed'
-        })
-        await this.getFieldComment().setValue(comment)
-    }
-
-    public async fillFieldFilterLabels(labelName: string): Promise<void> {
-        await this.getFieldFilterLabels().waitForDisplayed({
-            timeoutMsg: 'Field Filter Labels was not displayed'
-        })
-        await this.getFieldFilterLabels().setValue(labelName)
-        await this.browser.pause(1000)
-        await browser.keys('Enter') //вынести в PO
-    }
-
-    public async fillFieldTitle(title: string): Promise<void> {
-        await this.getFieldTitle().waitForDisplayed({
-            timeoutMsg: 'Title field was not displayed'
-        })
-        await this.getFieldTitle().setValue(title)
+    public iconLockCommentsExists(): Promise<boolean> {
+        return this.getIconLockComments().isDisplayed()
     }
 
     public async getAlertInvalidTitleText(): Promise<string> {
@@ -122,16 +68,61 @@ class IssuesPage {
         return this.getMessageDeletedIssue().getText()
     }
 
-    public getMessageLockCommentsText(): Promise<string> {
-        return this.getMessageLockComments().getText()
-    }
-
     public getSavedCommentText(): Promise<string> {
         return this.getSavedComment().getText()
     }
 
     private getUserAvatar(): ChainablePromiseElement<WebdriverIO.Element> {
         return this.browser.$('//summary//*[contains(@class, "avatar")]')
+    }
+
+    public async labelsComboboxOpen(): Promise<void> {
+        await this.getButtonLabels().waitForClickable({
+            timeoutMsg: 'Button Labels was not clickable'
+        })
+        await this.getButtonLabels().click()
+    }
+
+    public async lockComments(): Promise<void> {
+        await this.getButtonLockComments().waitForClickable({
+            timeoutMsg: 'Button Lock Comments was not clickable'
+        })
+        await this.getButtonLockComments().click()
+    }
+
+    public async lockCommentsApply(): Promise<void> {
+        await this.getButtonLockCommentsApply().waitForClickable({
+            timeoutMsg: 'Button Lock Comments Apply was not clickable'
+        })
+        await this.getButtonLockCommentsApply().click()
+    }
+
+    public async open(): Promise<void> {
+        await this.browser.url(this.url)
+    }
+
+    public async saveComment(): Promise<void> {
+        await this.getButtonSaveComment().waitForClickable({
+            timeoutMsg: 'Button Save Comment was not clickable'
+        })
+        await this.getButtonSaveComment().click()
+    }
+
+    public async searchLabels(labelName: string): Promise<void> {
+        await this.getFieldFilterLabels().waitForDisplayed({
+            timeoutMsg: 'Field Filter Labels was not displayed'
+        })
+        await this.getFieldFilterLabels().setValue(labelName)
+        await this.browser.pause(1000)
+        await browser.keys('Enter') //вынести в PO
+        await this.getButtonLabels().click()
+    }
+
+    public async setTitle(title: string): Promise<void> {
+        await this.getFieldTitle().waitForDisplayed({
+            timeoutMsg: 'Title field was not displayed'
+        })
+        await this.getFieldTitle().setValue(title)
     }
 
     public async signOut(): Promise<void> {
@@ -145,8 +136,11 @@ class IssuesPage {
         await this.getButtonSignOut().click()
     }
 
-    public async open(): Promise<void> {
-        await this.browser.url(this.url)
+    public async submitNewIssue(): Promise<void> {
+        await this.getButtonSubmitNewIssue().waitForClickable({
+            timeoutMsg: 'Button Submit New Issue was not clickable'
+        })
+        await this.getButtonSubmitNewIssue().click()
     }
 
     public async uploadCommentFile(filePath: string): Promise<void> {
@@ -156,6 +150,13 @@ class IssuesPage {
         const file: string = await this.browser.uploadFile(filePath)
         await this.getInputFile().setValue(file)
         await this.browser.pause(2000)
+    }
+
+    public async writeComment(comment: string): Promise<void> {
+        await this.getFieldComment().waitForDisplayed({
+            timeoutMsg: 'Comment field was not displayed'
+        })
+        await this.getFieldComment().setValue(comment)
     }
 
     private getAlertInvalidFile(): ChainablePromiseElement<WebdriverIO.Element> {
@@ -238,8 +239,8 @@ class IssuesPage {
         return this.browser.$('//*[@class="blankslate-heading"]')
     }
 
-    private getMessageLockComments(): ChainablePromiseElement<WebdriverIO.Element> {
-        return this.browser.$('//*[@class="blankslate"]/p')
+    private getIconLockComments(): ChainablePromiseElement<WebdriverIO.Element> {
+        return this.browser.$('//*[@class="octicon octicon-lock blankslate-icon"]')
     }
 
     private getSavedComment(): ChainablePromiseElement<WebdriverIO.Element> {

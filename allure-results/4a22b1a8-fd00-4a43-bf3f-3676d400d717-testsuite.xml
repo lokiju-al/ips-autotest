@@ -1,0 +1,86 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681335480292' stop='1681335539812'>
+    <name>Issues test: Tests with issue creation</name>
+    <title>Issues test: Tests with issue creation</title>
+    <test-cases>
+        <test-case start='1681335480292' status='passed' stop='1681335485248'>
+            <name>The user should be able to delete a task</name>
+            <title>The user should be able to delete a task</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='a6d44042-f323-4b1d-8b3d-e965bc38fae9-attachment.png' type='image/png' size='62271'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681335485248' status='passed' stop='1681335487631'>
+            <name>The user should be able to successfully create tasks with a valid number of characters in the title</name>
+            <title>The user should be able to successfully create tasks with a valid number of characters in the title</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='49a41133-d262-4a82-b36e-3653d919bd73-attachment.png' type='image/png' size='103268'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681335487631' status='broken' stop='1681335510031'>
+            <name>The user should be able to close the issue</name>
+            <title>The user should be able to close the issue</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='8ea2b8b7-28a7-4044-bf5a-b640a8239213-attachment.png' type='image/png' size='102696'/>
+            </attachments>
+            <failure>
+                <message>Can't call getText on element with selector "//*[@title="Status: Closed"]" because element wasn't found</message>
+                <stack-trace>Error: Can't call getText on element with selector "//*[@title="Status: Closed"]" because element wasn't found
+                    at implicitWait (C:\Users\alexander.platov\Documents\GitHub\autotest-ips\node_modules\webdriverio\build\utils\implicitWait.js:34:19)
+                    at async Element.elementErrorHandlerCallbackFn (C:\Users\alexander.platov\Documents\GitHub\autotest-ips\node_modules\webdriverio\build\middlewares.js:20:29)
+                    at async Element.wrapCommandFn (C:\Users\alexander.platov\Documents\GitHub\autotest-ips\node_modules\@wdio\utils\build\shim.js:137:29)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

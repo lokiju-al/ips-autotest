@@ -9,40 +9,18 @@ class LabelsPage {
         this.browser = browser
     }
 
-    public async clickButtonCreateLabel(): Promise<void> {
+    public async confirmLabelCreation(): Promise<void> {
         await this.getButtonCreateLabel().waitForClickable({
             timeoutMsg: 'Button Create Label was not clickable'
         })
         await this.getButtonCreateLabel().click()
     }
 
-    public async clickButtonLabelByFilter(): Promise<void> {
-        await this.getButtonLabelByFilter().waitForClickable({
-            timeoutMsg: 'Button Label By Filter was not clickable'
-        })
-        await this.getButtonLabelByFilter().click()
-    }
-
-    public async clickButtonNewLabel(): Promise<void> {
+    public async createLabel(): Promise<void> {
         await this.getButtonNewLabel().waitForClickable({
             timeoutMsg: 'Button New Label was not clickable'
         })
         await this.getButtonNewLabel().click()
-    }
-
-    public async fillFieldLabelName(labelName: string): Promise<void> {
-        await this.getFieldLabelName().waitForDisplayed({
-            timeoutMsg: 'Field Label Name was not displayed'
-        })
-        await this.getFieldLabelName().setValue(labelName)
-    }
-
-    public async fillFieldSearchAllLabels(labelName: string): Promise<void> {
-        await this.getFieldSearchAllLabels().waitForDisplayed({
-            timeoutMsg: 'Field Search All Labels was not displayed'
-        })
-        await this.getFieldSearchAllLabels().setValue(labelName)
-        await browser.keys('Enter')
     }
 
     public getButtonIssueFindByLabelText(): Promise<string> {
@@ -55,6 +33,28 @@ class LabelsPage {
 
     public async open(): Promise<void> {
         await this.browser.url(this.url)
+    }
+
+    public async searchLabels(labelName: string): Promise<void> {
+        await this.getFieldSearchAllLabels().waitForDisplayed({
+            timeoutMsg: 'Field Search All Labels was not displayed'
+        })
+        await this.getFieldSearchAllLabels().setValue(labelName)
+        await browser.keys('Enter')
+    }
+
+    public async selectResultLabel(): Promise<void> {
+        await this.getButtonLabelByFilter().waitForClickable({
+            timeoutMsg: 'Button Label By Filter was not clickable'
+        })
+        await this.getButtonLabelByFilter().click()
+    }
+
+    public async setLabelName(labelName: string): Promise<void> {
+        await this.getFieldLabelName().waitForDisplayed({
+            timeoutMsg: 'Field Label Name was not displayed'
+        })
+        await this.getFieldLabelName().setValue(labelName)
     }
 
     private getButtonCreateLabel(): ChainablePromiseElement<WebdriverIO.Element> {

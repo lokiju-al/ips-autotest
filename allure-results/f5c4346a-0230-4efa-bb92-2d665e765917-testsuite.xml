@@ -1,0 +1,110 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681333593412' stop='1681333604821'>
+    <name>Issues test: Tests with issue creation: Tests with another user loginations</name>
+    <title>Issues test: Tests with issue creation: Tests with another user loginations</title>
+    <test-cases>
+        <test-case start='1681333593412' status='failed' stop='1681333604820'>
+            <name>The user should be able to block comments</name>
+            <title>The user should be able to block comments</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps>
+                <step start='1681333599030' status='passed' stop='1681333599030'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681333599579' status='passed' stop='1681333599579'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681333599605' status='passed' stop='1681333599605'>
+                    <name>Ввести логин lokiju-al</name>
+                    <title>Ввести логин lokiju-al</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681333599678' status='passed' stop='1681333599678'>
+                    <name>Ввести пароль Anvruqok4915</name>
+                    <title>Ввести пароль Anvruqok4915</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681333599758' status='passed' stop='1681333599758'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681333603181' status='passed' stop='1681333603181'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681333603476' status='passed' stop='1681333603476'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681333603496' status='passed' stop='1681333603496'>
+                    <name>Ввести логин lokiju-test</name>
+                    <title>Ввести логин lokiju-test</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681333603560' status='passed' stop='1681333603560'>
+                    <name>Ввести пароль Hytplonb3620</name>
+                    <title>Ввести пароль Hytplonb3620</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681333603638' status='passed' stop='1681333603638'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='9e2a151c-0e84-491a-b2a1-a6b211f94e9d-attachment.png' type='image/png' size='97426'/>
+            </attachments>
+            <failure>
+                <message>expect(received).toEqual(expected) // deep equality
+                
+                Expected: false
+                Received: true</message>
+                <stack-trace>Error: expect(received).toEqual(expected) // deep equality
+                
+                Expected: false
+                Received: true
+                    at C:\Users\alexander.platov\Documents\GitHub\autotest-ips\src\lessons\lesson-11\issues\test\issues.test.ts:134:67
+                    at Generator.next (&lt;anonymous>)
+                    at fulfilled (C:\Users\alexander.platov\Documents\GitHub\autotest-ips\src\lessons\lesson-11\issues\test\issues.test.ts:5:58)
+                    at processTicksAndRejections (node:internal/process/task_queues:95:5)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

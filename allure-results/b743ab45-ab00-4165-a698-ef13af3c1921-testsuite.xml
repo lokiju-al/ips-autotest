@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681335082965' stop='1681335090386'>
+    <name>Issues test: Tests with issue creation: Tests with label creation</name>
+    <title>Issues test: Tests with issue creation: Tests with label creation</title>
+    <test-cases>
+        <test-case start='1681335082965' status='passed' stop='1681335090386'>
+            <name>The user should be able to find an issue by an existing tag</name>
+            <title>The user should be able to find an issue by an existing tag</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.86'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='aace3c66-3dfc-46a6-907e-1ddef9f4e1a4-attachment.png' type='image/png' size='96548'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

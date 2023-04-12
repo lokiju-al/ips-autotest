@@ -1,0 +1,79 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681333768630' stop='1681333802733'>
+    <name>Issues test: Tests with issue creation</name>
+    <title>Issues test: Tests with issue creation</title>
+    <test-cases>
+        <test-case start='1681333768632' status='passed' stop='1681333772857'>
+            <name>The user should be able to delete a task</name>
+            <title>The user should be able to delete a task</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='f27764c3-7a1a-4f97-b97e-fe80fa983b9e-attachment.png' type='image/png' size='62915'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681333772858' status='passed' stop='1681333775558'>
+            <name>The user should be able to successfully create tasks with a valid number of characters in the title</name>
+            <title>The user should be able to successfully create tasks with a valid number of characters in the title</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='7f766714-3cb7-4bdc-809e-c0f3a350a5c1-attachment.png' type='image/png' size='103810'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681333775558' status='passed' stop='1681333781027'>
+            <name>The user should be able to close the issue</name>
+            <title>The user should be able to close the issue</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='87505742-ed3f-4a7e-be09-d6070dec1c40-attachment.png' type='image/png' size='104703'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
