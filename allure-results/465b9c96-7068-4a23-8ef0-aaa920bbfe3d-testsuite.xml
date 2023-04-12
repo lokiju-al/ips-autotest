@@ -1,0 +1,267 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1681312173610' stop='1681312187125'>
+    <name>Login form test</name>
+    <title>Login form test</title>
+    <test-cases>
+        <test-case start='1681312173612' status='passed' stop='1681312178028'>
+            <name>User should be log in with LOGIN/PASSWORD</name>
+            <title>User should be log in with LOGIN/PASSWORD</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps>
+                <step start='1681312173624' status='passed' stop='1681312173624'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312174445' status='passed' stop='1681312174445'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312174476' status='passed' stop='1681312174476'>
+                    <name>Ввести логин lokiju-test</name>
+                    <title>Ввести логин lokiju-test</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312174543' status='passed' stop='1681312174543'>
+                    <name>Подождать отображения поля Password</name>
+                    <title>Подождать отображения поля Password</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312174569' status='passed' stop='1681312174569'>
+                    <name>Ввести пароль Hytplonb3620</name>
+                    <title>Ввести пароль Hytplonb3620</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312174641' status='passed' stop='1681312174641'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312174662' status='passed' stop='1681312174662'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='5fd67900-c887-4ccb-839b-c6b4d3de7141-attachment.png' type='image/png' size='174218'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681312178028' status='passed' stop='1681312182301'>
+            <name>User should be log in with EMAIL/PASSWORD</name>
+            <title>User should be log in with EMAIL/PASSWORD</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps>
+                <step start='1681312178028' status='passed' stop='1681312178028'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312179054' status='passed' stop='1681312179054'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312179078' status='passed' stop='1681312179078'>
+                    <name>Ввести логин for_fonk@mail.ru</name>
+                    <title>Ввести логин for_fonk@mail.ru</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312179146' status='passed' stop='1681312179146'>
+                    <name>Подождать отображения поля Password</name>
+                    <title>Подождать отображения поля Password</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312179164' status='passed' stop='1681312179164'>
+                    <name>Ввести пароль Hytplonb3620</name>
+                    <title>Ввести пароль Hytplonb3620</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312179237' status='passed' stop='1681312179237'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312179256' status='passed' stop='1681312179256'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='12d7cb1b-7718-40cb-9eb4-701e7dc82be6-attachment.png' type='image/png' size='174218'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681312182303' status='passed' stop='1681312184952'>
+            <name>User should not be log in with wrong PASSWORD</name>
+            <title>User should not be log in with wrong PASSWORD</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps>
+                <step start='1681312182305' status='passed' stop='1681312182305'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312183096' status='passed' stop='1681312183096'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312183122' status='passed' stop='1681312183122'>
+                    <name>Ввести логин lokiju-test</name>
+                    <title>Ввести логин lokiju-test</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312183193' status='passed' stop='1681312183193'>
+                    <name>Подождать отображения поля Password</name>
+                    <title>Подождать отображения поля Password</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312183221' status='passed' stop='1681312183221'>
+                    <name>Ввести пароль 1234</name>
+                    <title>Ввести пароль 1234</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312183291' status='passed' stop='1681312183291'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312183319' status='passed' stop='1681312183319'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312183918' status='passed' stop='1681312183918'>
+                    <name>Найти сообщение об ошибке</name>
+                    <title>Найти сообщение об ошибке</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='bc5f8134-f822-45cb-9af5-b929cdaa9ec7-attachment.png' type='image/png' size='31681'/>
+            </attachments>
+        </test-case>
+        <test-case start='1681312184955' status='passed' stop='1681312187124'>
+            <name>User should not be log in with empty fields</name>
+            <title>User should not be log in with empty fields</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+                <parameter kind='argument' name='browser' value='chrome-112.0.5615.49'/>
+            </parameters>
+            <steps>
+                <step start='1681312184956' status='passed' stop='1681312184956'>
+                    <name>Открыть страницу логинации</name>
+                    <title>Открыть страницу логинации</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312185709' status='passed' stop='1681312185709'>
+                    <name>Подождать отображения поля Login</name>
+                    <title>Подождать отображения поля Login</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312185734' status='passed' stop='1681312185734'>
+                    <name>Залогиниться</name>
+                    <title>Залогиниться</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+                <step start='1681312186096' status='passed' stop='1681312186096'>
+                    <name>Найти сообщение об ошибке</name>
+                    <title>Найти сообщение об ошибке</title>
+                    <attachments/>
+                    <steps/>
+                </step>
+            </steps>
+            <attachments>
+                <attachment title='Screenshot' source='fd025176-ce23-4c52-910e-90e0c4192bc7-attachment.png' type='image/png' size='30695'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -22,7 +22,7 @@ describe('POST /repos/{owner}/{repo}/issues', () => {
 
         expect(responseUrl.status).toEqual(200)
         
-        const responseGet: AxiosResponse<GetIssueResponse> = await IssueAPIService.getIssue(LOGIN, REPO)
+        const responseGet: AxiosResponse<GetIssueResponse> = await IssueAPIService.getIssue(LOGIN, REPO)//переименовать в getIssuesResponse
         
         expect(responseGet.data.find(element => element.html_url === response.data.html_url)?.html_url).toEqual(response.data.html_url)
     })

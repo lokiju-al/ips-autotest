@@ -10,9 +10,9 @@ type CreateIssueResponse = {
     html_url: string,
 }
 
-type GetIssueResponse = [{
+type GetIssueResponse = {
     html_url: string,
-},]
+}[]
 
 class IssueAPIService {
     public static async createIssue(login: string, repo: string, issue: IssueModel): Promise<AxiosResponse<CreateIssueResponse>> {

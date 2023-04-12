@@ -64,7 +64,7 @@ describe('Issues test', async () => {
 
     describe('Comments test', async () => {
         it('The user should be able to leave comments if they are enabled', async () => {
-            const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(LOGIN, REPO, issue)
+            const response: AxiosResponse<CreateIssueResponse> = await IssueAPIService.createIssue(LOGIN, REPO, issue)//вынести в before() или beforeEach()
             await issuesPage.signOut()
             await loginPage.open()
             await loginPage.login(COMMENTATOR_LOGIN, COMMENTATOR_PASSWORD)
