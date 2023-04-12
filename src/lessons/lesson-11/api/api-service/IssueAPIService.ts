@@ -12,6 +12,7 @@ type CreateIssueResponse = {
 
 type GetIssueResponse = {
     html_url: string,
+    title: string,
 }[]
 
 class IssueAPIService {

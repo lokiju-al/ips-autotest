@@ -21,10 +21,10 @@ describe('POST /repos/{owner}/{repo}/issues', () => {
         const responseUrl: Response = await fetch(response.data.html_url)
 
         expect(responseUrl.status).toEqual(200)
-        
-        const responseGet: AxiosResponse<GetIssueResponse> = await IssueAPIService.getIssue(LOGIN, REPO)//переименовать в getIssuesResponse
-        
-        expect(responseGet.data.find(element => element.html_url === response.data.html_url)?.html_url).toEqual(response.data.html_url)
+
+        const getIssuesResponse: AxiosResponse<GetIssueResponse> = await IssueAPIService.getIssue(LOGIN, REPO)//переименовать в getIssuesResponse
+
+        expect(getIssuesResponse.data.find(element => element.html_url === response.data.html_url)?.title).toEqual(issue.title)//привязаться к IssueModel
     })
 
     it('Issue should not be created in a repository where the ability to create issues is disabled', async () => {
