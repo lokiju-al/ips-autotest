@@ -1,3 +1,5 @@
 /node_modules
 /misc
 /credential.ts
+/allure-results
+/actual-screenshots
